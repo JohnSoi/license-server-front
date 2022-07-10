@@ -16,12 +16,12 @@ abstract class BasePropertiesStorage {
     protected readonly _keyTypePrefix: string = 'TypesItem';
 
     constructor(prefix: string) {
-        this._key = prefix;
+        this._key = prefix + '-';
         this._keyTypeItem = this._key + this._keyTypePrefix;
     }
 
     /**
-     * Построение уникального имени для сесии
+     * Построение уникального имени для сессии
      *
      * @param key Ключ значения
      * @private

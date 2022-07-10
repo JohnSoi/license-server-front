@@ -55,7 +55,7 @@ export default class AuthHelper {
      * Проверка авторизации
      */
     static checkAuth(force = false): void {
-        if (AuthHelper._isAuth === null || force) {
+        if (!AuthHelper._isAuth || force) {
             AuthHelper._isAuth = !!(AuthHelper._cookieStorageHelper.get(AuthHelper._userFields)
                 || AuthHelper._sessionStorageHelper.get(AuthHelper._userFields));
         }
@@ -65,7 +65,7 @@ export default class AuthHelper {
      * Проверка наличия информации о пользователе
      */
     static checkUserInfo(force = false): void {
-        if (AuthHelper._userInfo === null || force) {
+        if (!AuthHelper._userInfo || force) {
             AuthHelper._userInfo = AuthHelper._cookieStorageHelper.get(AuthHelper._userInformationFields)
                 || AuthHelper._sessionStorageHelper.get(AuthHelper._userInformationFields);
         }

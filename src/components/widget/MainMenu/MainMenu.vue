@@ -4,6 +4,9 @@
     import { defineComponent } from 'vue';
     import {MenuItems} from "../../../constants/MenuItems";
     import Url from "../../../utils/Url";
+    import AuthHelpers from "../../../helpers/AuthHelpers";
+    import {Emmiter} from '../../../helpers/BusEvents';
+
 
     export default defineComponent({
         name: 'MainMenu',
@@ -20,6 +23,13 @@
                 activeMenuItem: '1',
                 items: MenuItems,
                 path: ''
+            }
+        },
+        methods: {
+            logout() {
+                AuthHelpers.logout();
+                Emmiter.emit('authChange', false);
+                this.$emit('authChange', true);
             }
         }
     });

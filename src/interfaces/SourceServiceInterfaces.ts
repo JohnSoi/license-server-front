@@ -17,7 +17,7 @@ export interface IResponse {
     success: boolean;
     field_error?: string;
     error: string;
-    data?: string | number | boolean | IData;
+    data?: any;
     meta?: IMeta;
     navigation?: INavigation;
 }
