@@ -1,0 +1,29 @@
+<div class="Widget-Menu__wrapper hidden-overflow">
+    <div class="Widget-Menu__logo">
+        RS|<span>Лицензии</span>
+    </div>
+    <el-menu
+            :default-active="activeMenuItem"
+            class="full-size"
+            background-color="#23303e"
+            active-text-color="#FBD04B"
+    >
+        <el-menu-item :index="item.id" :key="item.id" v-for="item in items">
+            <i class="fa-solid" :class="'fa-' + item.icon"></i>
+            <router-link :to="item.path">{{ item.name }}</router-link>
+        </el-menu-item>
+    </el-menu>
+    <div class="Widget-Menu__user-wrapper flex flex-align-center flex-justify-space-around">
+        <div class="Widget-Menu__user-avatar">
+            <el-avatar
+                    src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+            />
+        </div>
+        <div class="Widget-Menu__user-name cursor-default">
+            Старков Е.П.
+        </div>
+        <div class="Widget-Menu__user-logout">
+            <i class="fa-solid fa-sign-out cursor-pointer" title="Выйти"></i>
+        </div>
+    </div>
+</div>
