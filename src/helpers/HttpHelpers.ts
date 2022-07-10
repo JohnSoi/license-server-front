@@ -22,7 +22,7 @@ export default class HttpHelpers {
      */
     static async sendRequest(data: IData = {}, endpointName = '',
                              method = '', isScalar = false): Promise<IResponse> {
-        let result: IResponse = {success: false};
+        let result: any = {success: false};
         if (!endpointName) {
             new Exception(ExceptionType.ERROR, 'HttpHelpers', 'Не задана точка для запроса');
         }
@@ -41,7 +41,7 @@ export default class HttpHelpers {
         await axios.post(url, axiosParams,
             {headers: {'User-Auth-UUID': AuthHelper.getUser()}}).then((response) => {
             result = isScalar ? response : response.data;
-        }).catch((error: { message: string | undefined; }) => {
+        }).catch((error: { message: string; }) => {
             result.error = error.message;
         });
 

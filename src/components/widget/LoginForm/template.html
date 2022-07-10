@@ -6,7 +6,7 @@
             status-icon
             class="flex flex-column flex-justify-center flex-align-center"
     >
-        <el-form-item prop="login">
+        <el-form-item prop="login" :error="errors.login">
             <el-input v-model="form.login" placeholder="Логин" @blur="checkLogin">
                 <template #prepend>
                     <i class="fa-solid fa-user"></i>
@@ -26,6 +26,6 @@
                     style="--el-switch-on-color: #60e29a; --el-switch-off-color: #f17979"
             />
         </el-form-item>
-        <el-button icon="Lock" type="primary" @click="onSubmit()">Войти</el-button>
+        <el-button :disabled="submitDisabled" icon="Lock" type="primary" @click="onSubmit()">Войти</el-button>
     </el-form>
 </div>

@@ -10,10 +10,11 @@
         name: "LoginForm",
         data() {
             return {
+                submitDisabled: false,
                 form: {
                     login: '',
                     password: '',
-                    rememberMe: false,
+                    rememberMe: false
                 },
                 rules: {
                     login: [
@@ -25,6 +26,10 @@
                         {min: 4, max: 20, message: 'Пароль должен быть от 4 до 20 символов', trigger: 'blur'},
                     ]
                 },
+                errors: {
+                    login: '',
+                    password: ''
+                },
                 sourceService: new SourceService({
                     endpoint: 'User',
                     binding: {login: 'Login', loginCheck: 'LoginCheck'}
@@ -33,6 +38,7 @@
         },
         methods: {
             async onSubmit() {
+                this.submitDisabled = true;
                 const formEl: any = this.$refs.authForm;
                 if (!formEl) return
                 await formEl.validate((fields: any, valid: boolean) => {
@@ -43,9 +49,11 @@
                             }
                         });
                     }
-                })
+                    this.submitDisabled = false;
+                }).catch(() => {this.submitDisabled = false});
             },
             async checkLogin() {
+                this.submitDisabled = true;
                 const formEl: any = this.$refs.authForm;
                 if (!formEl) return
                 await formEl.validate((fields: any, valid: boolean) => {
@@ -54,6 +62,10 @@
                             .then((result: IResponse) => {
                             if (result.success) {
                                 console.log('1');
+                                this.submitDisabled = false;
+                            } else {
+                                this.errors.login = result.error;
+                                this.submitDisabled = true;
                             }
                         });
                     }

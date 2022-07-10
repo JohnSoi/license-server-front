@@ -16,7 +16,7 @@ export interface INavigation {
 export interface IResponse {
     success: boolean;
     field_error?: string;
-    error?: string;
+    error: string;
     data?: string | number | boolean | IData;
     meta?: IMeta;
     navigation?: INavigation;
