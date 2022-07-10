@@ -1,0 +1,31 @@
+<div class="Widget-LoginForm__wrapper flex flex-column flex-justify-center flex-align-center">
+    <el-form
+            :model="form"
+            :rules="rules"
+            ref="authForm"
+            status-icon
+            class="flex flex-column flex-justify-center flex-align-center"
+    >
+        <el-form-item prop="login">
+            <el-input v-model="form.login" placeholder="Логин" @blur="checkLogin">
+                <template #prepend>
+                    <i class="fa-solid fa-user"></i>
+                </template>
+            </el-input>
+        </el-form-item>
+        <el-form-item prop="password">
+            <el-input v-model="form.password" placeholder="Пароль">
+                <template #prepend>
+                    <i class="fa-solid fa-key"></i>
+                </template>
+            </el-input>
+        </el-form-item>
+        <el-form-item label="Запомнить меня">
+            <el-switch
+                    v-model="form.rememberMe"
+                    style="--el-switch-on-color: #60e29a; --el-switch-off-color: #f17979"
+            />
+        </el-form-item>
+        <el-button icon="Lock" type="primary" @click="onSubmit()">Войти</el-button>
+    </el-form>
+</div>

@@ -106,7 +106,7 @@ export default class AuthHelper {
     static getUser(): string {
         AuthHelper.checkInstance();
 
-        return AuthHelper._user;
+        return AuthHelper._user || '';
     }
 
     /**

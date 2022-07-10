@@ -1,6 +1,6 @@
 <template>
   <div class="App_wrapper full-screen hidden-overflow">
-    <MainMenu/>
+    <MainMenu v-if="userAuth"/>
     <router-view/>
   </div>
 </template>
@@ -8,6 +8,7 @@
 <script lang="ts">
   import { defineComponent } from 'vue';
   import MainMenu from '@/components/widget/MainMenu/MainMenu.vue';
+  import AuthHelper from "./helpers/AuthHelpers";
 
   export default defineComponent({
     name: 'App',
@@ -16,7 +17,8 @@
     },
     data() {
       return {
-        minimizeMenu: false
+        minimizeMenu: false,
+        userAuth: AuthHelper.userIsAuth()
       }
     }
   });
