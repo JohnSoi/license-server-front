@@ -1,6 +1,6 @@
 <template>
-  <div class="App_wrapper full-screen hidden-overflow">
-    <MainMenu v-if="userAuth"/>
+  <div class="App__wrapper full-screen hidden-overflow">
+    <MainMenu v-if="userAuth" :isCollapseMenu="isCollapseMenu" @menuCollapseChange="menuCollapseChange"/>
     <router-view/>
   </div>
 </template>
@@ -23,8 +23,13 @@
     },
     data() {
       return {
-        minimizeMenu: false,
+        isCollapseMenu: false,
         userAuth: AuthHelper.userIsAuth()
+      }
+    },
+    methods: {
+      menuCollapseChange(value: boolean) {
+          this.isCollapseMenu = value;
       }
     }
   });

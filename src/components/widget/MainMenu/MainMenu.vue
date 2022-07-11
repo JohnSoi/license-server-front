@@ -6,10 +6,12 @@
     import Url from "../../../utils/Url";
     import AuthHelpers from "../../../helpers/AuthHelpers";
     import {Emmiter} from '../../../helpers/BusEvents';
+    import router from "../../../router";
 
 
     export default defineComponent({
         name: 'MainMenu',
+        props: ['isCollapseMenu'],
         beforeMount(): void {
             this.path = new Url().getClearPath(false);
             this.items.forEach((item) => {
@@ -17,19 +19,31 @@
                     this.activeMenuItem = item.id;
                 }
             });
+            this.userInfo = AuthHelpers.getUserInfo();
         },
         data() {
             return {
                 activeMenuItem: '1',
                 items: MenuItems,
-                path: ''
+                path: '',
+                userInfo: {}
             }
         },
         methods: {
             logout() {
                 AuthHelpers.logout();
+                router.push('/login');
                 Emmiter.emit('authChange', false);
-                this.$emit('authChange', true);
+            }
+        },
+        computed: {
+            isCollapse: {
+                get(): boolean {
+                    return this.isCollapse;
+                },
+                set(value: boolean) {
+                    this.$emit('menuCollapseChange', value);
+                }
             }
         }
     });
