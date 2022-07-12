@@ -5,7 +5,7 @@
 
     export default defineComponent({
         name: 'BasicLayout',
-        props: ['addButtonConfig', 'searchConfig', 'filterConfig'],
+        props: ['showAddButton', 'showSearch', 'filterConfig'],
         data() {
             return {
 

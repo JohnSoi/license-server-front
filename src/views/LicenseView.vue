@@ -1,6 +1,6 @@
 <template>
   <div class="View-License__wrapper">
-    <BasicLayout>
+    <BasicLayout :showAddButton="true" :showSearch="true">
       <template v-slot:content>
         <Licenses/>
       </template>
