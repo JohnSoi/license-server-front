@@ -1,5 +1,7 @@
 @import "src/style/platformVar";
 
+@userBlockHeight: 70px;
+
 .Widget-Menu__ {
   &wrapper {
     width: 300px;
@@ -51,7 +53,7 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      height: 70px;
+      height: @userBlockHeight;
       font-weight: bold;
       background: @brand-background;
       width: calc(100% - 1px);
@@ -68,5 +70,9 @@
         color: @brand-text;
       }
     }
+  }
+
+  &menu {
+    height: calc(100% - @userBlockHeight - 20px);
   }
 }

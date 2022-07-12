@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
+import LicenseView from '../views/LicenseView.vue'
 import AuthHelper from '../helpers/AuthHelpers';
 
 const routes: Array<RouteRecordRaw> = [
@@ -17,7 +18,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/licenses',
     name: 'licenses',
-    component: HomeView
+    component: LicenseView
   },
   {
     path: '/products',

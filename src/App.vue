@@ -1,7 +1,7 @@
 <template>
-  <div class="App__wrapper full-screen hidden-overflow">
+  <div class="App__wrapper full-screen hidden-overflow flex">
     <MainMenu v-if="userAuth" :isCollapseMenu="isCollapseMenu" @menuCollapseChange="menuCollapseChange"/>
-    <router-view/>
+    <router-view class="App-View"/>
   </div>
 </template>
 
@@ -36,5 +36,8 @@
 </script>
 
 <style lang="less">
-
+  .App-View {
+    height: 100%;
+    width: calc(100% - 300px);
+  }
 </style>

@@ -1,0 +1,10 @@
+<div class="Layout-BasicLayout__wrapper">
+    <div class="Layout-BasicLayout__header">
+        <div class="Layout-BasicLayout-header__addButton" v-if="addButtonConfig"></div>
+        <div class="Layout-BasicLayout-header__search" v-if="searchConfig"></div>
+        <div class="Layout-BasicLayout-header__filter" v-if="filterConfig"></div>
+    </div>
+    <div class="Layout-BasicLayout__content">
+        <slot name="content"/>
+    </div>
+</div>

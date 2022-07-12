@@ -77,6 +77,7 @@
                                     this.avatarUrl = result.data.photo_url ?
                                         String(result.data.photo_url) : this.defaultAvatar;
                                     this.submitDisabled = false;
+                                    this.errors.login = '';
                                 } else {
                                     this.errors.login = result.error;
                                     this.submitDisabled = true;
