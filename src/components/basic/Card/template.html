@@ -1,0 +1,19 @@
+<div class="Card__wrapper">
+    <el-drawer
+            v-model="cardVisible"
+            :title="title"
+            direction="rtl"
+            :before-close="handleClose"
+    >
+        <template #header>
+            <h4>{{ title }}</h4>
+            <el-button type="success" class="margin-right-l" @click="saveCard">
+                <el-icon class="el-icon--left"><Upload /></el-icon>
+                Сохранить
+            </el-button>
+        </template>
+        <div class="Card__content">
+            123
+        </div>
+    </el-drawer>
+</div>

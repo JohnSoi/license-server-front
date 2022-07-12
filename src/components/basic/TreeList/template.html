@@ -1,0 +1,8 @@
+<div class="__wrapper">
+    <el-tree
+            v-infinite-scroll="load"
+            :data="data"
+            :props="treeSettings"
+            @node-click="handleNodeClick"
+    />
+</div>

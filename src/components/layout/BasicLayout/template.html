@@ -1,10 +1,26 @@
-<div class="Layout-BasicLayout__wrapper">
-    <div class="Layout-BasicLayout__header">
-        <div class="Layout-BasicLayout-header__addButton" v-if="showAddButton"></div>
-        <div class="Layout-BasicLayout-header__search" v-if="showSearch"></div>
-        <div class="Layout-BasicLayout-header__filter" v-if="filterConfig"></div>
+<div class="Layout-BasicLayout__wrapper full-size">
+    <div class="Layout-BasicLayout-header">
+        <div class="Layout-BasicLayout-header__addButton" v-if="showAddButton">
+            <el-button
+                    type="primary"
+                    :icon="plus"
+                    circle
+                    :title="addButtonTooltip"
+                    @click="onAddButtonClick"
+            />
+        </div>
+        <div class="Layout-BasicLayout-header__search" v-if="showSearch">
+            <el-input v-model="searchStr" :placeholder="searchTooltip">
+                <template #prefix>
+                    <el-icon class="el-input__icon"><Search /></el-icon>
+                </template>
+            </el-input>
+        </div>
+        <div class="Layout-BasicLayout-header__filter flex flex-align-center flex-justify-center" v-if="filterConfig">
+            <i class="fas fa-filter"></i>
+        </div>
     </div>
-    <div class="Layout-BasicLayout__content">
+    <div class="Layout-BasicLayout__content hidden-overflow">
         <slot name="content"/>
     </div>
 </div>

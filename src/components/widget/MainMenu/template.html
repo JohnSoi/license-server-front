@@ -17,11 +17,11 @@
     <div class="Widget-Menu__user-wrapper flex flex-align-center flex-justify-space-around">
         <div class="Widget-Menu__user-avatar">
             <el-avatar
-                    :src="userInfo.photo_url ? userInfo.photo_url : 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png' "
+                    :src="userInfo && userInfo.photo_url ? userInfo.photo_url : '' "
             />
         </div>
         <div class="Widget-Menu__user-name cursor-default">
-            {{ userInfo.full_name }}
+            {{ userInfo ? userInfo.full_name : '' }}
         </div>
         <div class="Widget-Menu__user-logout">
             <i class="fa-solid fa-sign-out cursor-pointer" title="Выйти" @click="logout"></i>

@@ -1,3 +1,7 @@
-<div class="__wrapper">
-
+<div class="License__wrapper">
+    <TreeList :source="source"/>
+    <LicenseCard
+            :visible="visible"
+            @licenseCardVisibleChange="cardVisibleChange"
+    />
 </div>

@@ -6,7 +6,7 @@
     import Url from "../../../utils/Url";
     import AuthHelpers from "../../../helpers/AuthHelpers";
     import {Emmiter} from '../../../helpers/BusEvents';
-    import router from "../../../router";
+    import {DEFAULT_URL_PHOTO} from "../../../constants";
 
 
     export default defineComponent({
@@ -26,13 +26,13 @@
                 activeMenuItem: '1',
                 items: MenuItems,
                 path: '',
-                userInfo: {}
+                userInfo: {},
+                defaultAvatar: DEFAULT_URL_PHOTO
             }
         },
         methods: {
             logout() {
                 AuthHelpers.logout();
-                router.push('/login');
                 Emmiter.emit('authChange', false);
             }
         },

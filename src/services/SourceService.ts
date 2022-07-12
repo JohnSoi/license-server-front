@@ -44,7 +44,7 @@ export default class SourceService {
      *
      * @param params Параметры для источника данных
      */
-    constructor(params: {endpoint: string, keyProperty?: string, binding: any}) {
+    constructor(params: {endpoint: string, keyProperty?: string, binding?: any}) {
         this._prepareParams(params);
     }
 
@@ -144,7 +144,7 @@ export default class SourceService {
      * @param params Входные параметры
      * @private
      */
-    _prepareParams(params: {endpoint: string, keyProperty?: string, binding: any}): void {
+    _prepareParams(params: {endpoint: string, keyProperty?: string, binding?: any}): void {
         if (!params.endpoint) {
             new Exception(ExceptionType.ERROR, 'SourceService',
                 'Не задана конечная точка (endpoint).' +

@@ -157,7 +157,7 @@ class BaseStorage extends BasePropertiesStorage {
      * @param key Ключ
      */
     delete(key: string): void {
-        this._storage.removeItem(key);
+        this._storage.removeItem(this._buildKey(key));
         this._removeTypeItem(key);
     }
 

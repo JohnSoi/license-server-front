@@ -8,6 +8,7 @@
     import AuthHelpers from "../../../helpers/AuthHelpers";
     import router from "../../../router";
     import {Emmiter} from '../../../helpers/BusEvents';
+    import {DEFAULT_URL_PHOTO} from "../../../constants";
 
     export default defineComponent({
         name: "LoginForm",
@@ -19,8 +20,8 @@
                     password: '',
                     rememberMe: false
                 },
-                avatarUrl: 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png',
-                defaultAvatar: 'https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png',
+                avatarUrl: DEFAULT_URL_PHOTO,
+                defaultAvatar: DEFAULT_URL_PHOTO,
                 rules: {
                     login: [
                         {required: true, message: 'Поле обязательно для заполнения', trigger: 'blur'},
