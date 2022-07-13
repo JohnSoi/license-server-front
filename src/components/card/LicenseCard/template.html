@@ -3,5 +3,28 @@
         :title="computedTitle"
         :visible="cardVisible"
         @cardVisibleChange="cardVisibleChange"
-    />
+        @cardSave="cardSave"
+    >
+        <template #content>
+            <div class="LicenseCard__form">
+                <el-form
+                        ref="ruleFormRef"
+                        :model="data"
+                        :rules="rules"
+                        label-width="120px"
+                        status-icon
+                >
+                    <el-form-item label="Название" prop="name">
+                        <el-input v-model="data.name" :clearable="true" :show-word-limit="true" :maxlength="40" :autosize="true"/>
+                    </el-form-item>
+                    <el-form-item label="Стоимость" prop="cost">
+                        <el-input-number v-model="data.cost" :min="0" :max="10000000000" />
+                    </el-form-item>
+                    <el-form-item label="Ограничения" prop="limitation">
+                        <el-input v-model="data.limitation" :clearable="true" :show-word-limit="true" type="textarea"/>
+                    </el-form-item>
+                </el-form>
+            </div>
+        </template>
+    </Card>
 </div>

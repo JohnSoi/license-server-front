@@ -13,11 +13,18 @@
             title: {
                 default: 'Карточка',
                 type: String
+            },
+            menuItems: {
+                default: null
+            },
+            size: {
+                type: String,
+                default: '40%'
             }
         },
         data() {
             return {
-
+                activeMenuItem: '1'
             }
         },
         methods: {
@@ -41,4 +48,4 @@
     });
 </script>
 
-<style scoped lang="less" src="./style.less"></style>
+<style lang="less" src="./style.less"></style>

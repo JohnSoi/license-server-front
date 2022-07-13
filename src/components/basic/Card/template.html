@@ -3,6 +3,7 @@
             v-model="cardVisible"
             :title="title"
             direction="rtl"
+            :size="size"
             :before-close="handleClose"
     >
         <template #header>
@@ -12,8 +13,24 @@
                 Сохранить
             </el-button>
         </template>
-        <div class="Card__content">
-            123
+        <div class="Card__content full-size">
+            <div class="Card__content-wrapper" :class="{'full-size': !menuItems,
+                        'Card__content-wrapper__size': menuItems}">
+                <slot name="content"></slot>
+            </div>
+            <div class="Card__content-menu" v-if="menuItems">
+                <el-menu
+                        :default-active="activeMenuItem"
+                        class="full-width scroll-container"
+                        active-text-color="#222684"
+                        background-color="#dcdcdc"
+                >
+                    <el-menu-item :index="item.id" :key="item.id" v-for="item in menuItems">
+                        <i class="fa-solid margin-right-s" :class="'fa-' + item.icon"></i>
+                        <span>{{ item.title }}</span>
+                    </el-menu-item>
+                </el-menu>
+            </div>
         </div>
     </el-drawer>
 </div>

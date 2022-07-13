@@ -11,9 +11,13 @@
         name: 'LicensesPage',
         components: {TreeList, LicenseCard},
         beforeMount(): void {
-            Emmiter.on('addButtonClick', () => {
+            Emmiter.on('addButtonClick', async () => {
                 this.visible = true;
-                this.source.create();
+                await this.source.create().then((result) => {
+                    if (result.success) {
+                        this.data = result.data;
+                    }
+                });
             });
         },
         data() {
@@ -22,12 +26,24 @@
                     endpoint: 'License',
                     keyProperty: 'id'
                 }),
-                visible: false
+                visible: false,
+                data: null,
+                treeSettings: {
+                    children: 'group_uuid',
+                    label: 'name',
+                }
             }
         },
         methods: {
             cardVisibleChange(value: boolean) {
                 this.visible = value;
+            },
+            cardSave(data: any) {
+                this.source.update(data);
+            },
+            nodeClick(data: any) {
+                this.data = data;
+                this.visible = true;
             }
         }
     });

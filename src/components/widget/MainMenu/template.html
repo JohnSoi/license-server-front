@@ -17,7 +17,7 @@
     <div class="Widget-Menu__user-wrapper flex flex-align-center flex-justify-space-around">
         <div class="Widget-Menu__user-avatar">
             <el-avatar
-                    :src="userInfo && userInfo.photo_url ? userInfo.photo_url : '' "
+                    :src="userInfo && userInfo.photo_url ? userInfo.photo_url : defaultAvatar "
             />
         </div>
         <div class="Widget-Menu__user-name cursor-default">

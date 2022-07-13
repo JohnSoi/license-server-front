@@ -1,1 +1,44 @@
 @import "../../../style/platformVar";
+
+.Card__ {
+  &wrapper {
+    .el-drawer__body {
+      padding: 0;
+      background: #dcdcdc;
+    }
+
+    .el-drawer__header {
+      margin-bottom: 14px;
+    }
+  }
+
+  &content {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    background: white;
+    margin-top: 8px;
+    margin-right: 4px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: @right-shadow;
+    width: 99% !important;
+    height: calc(100% - 80px) !important;
+
+    &-wrapper {
+      padding: 10px;
+    }
+
+    &-wrapper__size {
+      width: calc(100% - 200px);
+    }
+
+    &-menu {
+      margin-top: 8px;
+      width: 200px;
+      height: 100%;
+    }
+  }
+}
+
+

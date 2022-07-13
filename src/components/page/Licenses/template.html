@@ -1,7 +1,10 @@
 <div class="License__wrapper">
-    <TreeList :source="source"/>
+    <TreeList :source="source" :treeSettings="treeSettings" @nodeClick="nodeClick"/>
     <LicenseCard
             :visible="visible"
+            :data="data"
             @licenseCardVisibleChange="cardVisibleChange"
+            @cardSave="cardSave"
+            v-if="data"
     />
 </div>

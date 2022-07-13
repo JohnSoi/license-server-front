@@ -3,6 +3,7 @@
 <script lang="ts">
     import { defineComponent } from 'vue';
     import Card from "../../basic/Card/Card.vue";
+    import {ObjectUtils} from "@/src/utils/Object";
 
     export default defineComponent({
         name: 'LicenseCard',
@@ -11,16 +12,32 @@
             visible: {
                 default: false,
                 type: Boolean
+            },
+            data: {
+                required: true,
+                default: null
             }
+        },
+        beforeMount(): void {
+            this.localData = this.data;
         },
         data() {
             return {
-
+                rules: {
+                    name: [
+                        { required: true, message: 'Введите название лицензии', trigger: 'blur' },
+                        { min: 5, max: 40, message: 'Длинна должна быть от 5 до 40 символов', trigger: 'blur' },
+                    ],
+                },
+                localData: null
             }
         },
         methods: {
             cardVisibleChange(value: boolean) {
                 this.cardVisible = value;
+            },
+            cardSave() {
+                this.$emit('cardSave', this.localData);
             }
         },
         computed: {
