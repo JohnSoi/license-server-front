@@ -1,0 +1,10 @@
+<div class="User__wrapper">
+    <TreeList :source="source" :treeSettings="treeSettings" @nodeClick="nodeClick"/>
+    <UserCard
+            :visible="visible"
+            :data="data"
+            @userCardVisibleChange="cardVisibleChange"
+            @cardSave="cardSave"
+            v-if="data"
+    />
+</div>

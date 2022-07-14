@@ -1,0 +1,40 @@
+<div class="UserCard__wrapper">
+    <Card
+            :title="computedTitle"
+            :visible="cardVisible"
+            @cardVisibleChange="cardVisibleChange"
+            @cardSave="cardSave"
+    >
+
+        <template #content>
+            <div class="UserCard__form">
+                <el-form
+                        ref="ruleFormRef"
+                        :model="data"
+                        :rules="rules"
+                        label-width="120px"
+                        status-icon
+                >
+                    <el-form-item label="Имя" prop="name">
+                        <el-input v-model="data.name" :clearable="true" :show-word-limit="true" :maxlength="20" :autosize="true"/>
+                    </el-form-item>
+                    <el-form-item label="Фамилия" prop="surname">
+                        <el-input v-model="data.surname" :clearable="true" :show-word-limit="true" :maxlength="40" :autosize="true"/>
+                    </el-form-item>
+                    <el-form-item label="Отчество" prop="second_name">
+                        <el-input v-model="data.second_name" :clearable="true" :show-word-limit="true" :maxlength="40" :autosize="true"/>
+                    </el-form-item>
+                    <el-form-item label="Логин" prop="login">
+                        <el-input v-model="data.login" :clearable="true" :show-word-limit="true" :minlength="4" :maxlength="20" :autosize="true"/>
+                    </el-form-item>
+                  <!--  <el-form-item label="Пароль" prop="password" v-if="!data.id">
+                        <el-input v-model="data.password" :clearable="true" :show-word-limit="true" :minlength="8" :maxlength="20" :autosize="true"/>
+                    </el-form-item> -->
+                    <el-form-item label="Email:" prop="email">
+                        <el-input v-model="data.email" :clearable="true" :autosize="true"/>
+                    </el-form-item>
+                </el-form>
+            </div>
+        </template>
+    </Card>
+</div>
