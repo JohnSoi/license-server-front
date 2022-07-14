@@ -3,6 +3,7 @@
 <script lang="ts">
     import { defineComponent } from 'vue';
     import SourceService from "../../../services/SourceService";
+    import {Emmiter} from "../../../helpers/BusEvents";
 
     export default defineComponent({
         name: 'TreeList',
@@ -23,6 +24,20 @@
                 if (result.success) {
                     this.data = result.data;
                 }
+            });
+            Emmiter.on('changeSearchString', (value: string) => {
+                this.source.list({searchString: value}).then((result) => {
+                    if (result.success) {
+                        this.data = result.data;
+                    }
+                });
+            });
+            Emmiter.on('changeFilter', (filter: any) => {
+                this.source.list(filter).then((result) => {
+                    if (result.success) {
+                        this.data = result.data;
+                    }
+                });
             });
         },
         data() {

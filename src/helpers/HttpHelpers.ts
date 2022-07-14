@@ -15,27 +15,32 @@ export default class HttpHelpers {
     /**
      * Отправка запроса на бл через axios
      *
-     * @param data Данные для запроса
+     * @param params Данные для запроса
+     * @param filter Объект фильтра
+     * @param navigation Объект навигации
+     * @param sorting Объект сортировки
      * @param endpointName Имя конечной точки (Название класса в БЛ)
      * @param method Название метода в классе
      * @param isScalar Признак простого запроса (1 параметр - 1 ответ)
      */
-    static async sendRequest(data: IData = {}, endpointName = '',
+    static async sendRequest(params = {}, filter = {}, navigation = {},
+                             sorting = {}, endpointName = '',
                              method = '', isScalar = false): Promise<IResponse> {
         let result: any = {success: false};
         if (!endpointName) {
             new Exception(ExceptionType.ERROR, 'HttpHelpers', 'Не задана точка для запроса');
         }
 
-        if (!isScalar) {
-            data['user'] = AuthHelper.getUser();
-        }
-
         const url: string = 'http://' + ServerConstants.ServerUrl + '/' + ServerConstants.ServiceEndpoint;
         const axiosParams: IAxiosParams = {
             endpointName,
             method,
-            data
+            data: {
+                params,
+                filter,
+                navigation,
+                sorting
+            }
         };
 
         await axios.post(url, axiosParams,

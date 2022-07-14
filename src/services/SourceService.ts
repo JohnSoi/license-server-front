@@ -88,14 +88,14 @@ export default class SourceService {
      * Фильтрующая выборка записей
      *
      * @param filter Фильтр для выбора с навигацией
+     * @param navigation Объект навигации
      */
-    async list(filter: IFilter): Promise<IResponse> {
-        const sourceFilter = filter || {};
-        if (!sourceFilter.navigation) {
-            sourceFilter.navigation = this._baseNavigation
+    async list(filter: IFilter, navigation: any = null): Promise<IResponse> {
+        if (!navigation) {
+            navigation = this._baseNavigation
         }
 
-        return await this._sendRequest(sourceFilter, this._params.binding.list);
+        return await this._sendRequest(null, this._params.binding.list, false, filter, navigation);
     }
 
     /**
@@ -109,7 +109,7 @@ export default class SourceService {
             searchString,
             filter
         };
-        return await this._sendRequest(filters, this._params.binding.search);
+        return await this._sendRequest(null, this._params.binding.search, false, filters);
     }
 
     /**
@@ -173,13 +173,18 @@ export default class SourceService {
     /**
      * Отправка запроса на БЛ
      *
-     * @param data Данные запроса
+     * @param params Данные для запроса
+     * @param filter Объект фильтра
+     * @param navigation Объект навигации
+     * @param sorting Объект сортировки
      * @param binding Конечная точка для запроса
      * @param isScalar Признак простого запроса (1 параметр - 1 ответ)
      * @private
      */
-    async _sendRequest(data: any, binding: string, isScalar = false): Promise<IResponse> {
-        return await HttpHelpers.sendRequest(data, this._params.endpoint, binding, isScalar);
+    async _sendRequest(params: any, binding: string, isScalar = false, filter = {}, navigation = {},
+                       sorting = {}): Promise<IResponse> {
+        return await HttpHelpers.sendRequest(params, filter, navigation, sorting,
+            this._params.endpoint, binding, isScalar);
     }
 
 }
