@@ -8,7 +8,7 @@
     >
         <template #header>
             <h4>{{ title }}</h4>
-            <el-button type="success" class="margin-right-l" @click="saveCard">
+            <el-button :disabled="saveButtonDisabled" type="success" class="margin-right-l" @click="saveCard">
                 <el-icon class="el-icon--left"><Upload /></el-icon>
                 Сохранить
             </el-button>

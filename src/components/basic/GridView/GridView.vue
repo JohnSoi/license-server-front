@@ -2,32 +2,12 @@
 
 <script lang="ts">
     import { defineComponent } from 'vue';
-    import SourceService from "../../../services/SourceService";
+    import BasicList from "../../../components/basic/BasicList/BasicList.vue";
 
     export default defineComponent({
         name: 'GridView',
-        props: {
-            source: {
-                required: true,
-                type: SourceService
-            }
-        },
-        beforeMount() {
-            this.source.list({}).then((result) => {
-                if (result.success) {
-                    this.data = result.data;
-                }
-            });
-        },
-        data() {
-            return {
-                data: null
-            }
-        },
+        mixins: [BasicList],
         methods: {
-            load(): Array<any> {
-                return [];
-            },
             rowClick(row: any, column: any): void {
                 this.$emit('rowClick', row, column);
             }

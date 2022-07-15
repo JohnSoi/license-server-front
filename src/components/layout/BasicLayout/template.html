@@ -26,7 +26,7 @@
                     </div>
                     <el-button type="warning" round @click="applyFilter">Применить</el-button>
                 </div>
-                <div class="Layout-BasicLayout-header__filter-content__main flex flex-justify-space-between flex-column">
+                <div class="Layout-BasicLayout-header__filter-content__main margin-top-xs flex flex-justify-space-between flex-column">
                     <div class="Layout-BasicLayout-header__filter-content__item flex flex-justify-space-between flex-align-center margin-bottom-s" :key="item.field" v-for="item in filterSource.main">
                         <span class="Layout-BasicLayout-header__filter-content__item-name">{{ item.title }}</span>
                         <el-date-picker
