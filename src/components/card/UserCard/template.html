@@ -7,7 +7,18 @@
     >
 
         <template #content>
-            <div class="UserCard__form">
+                <div class="avatar__align" style="display: flex; justify-content: center; padding: 20px 0 20px 0;">
+                <el-upload
+                        class="avatar-uploader"
+                        action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
+                        :show-file-list="false"
+                        :on-success="handleAvatarSuccess"
+                        :before-upload="beforeAvatarUpload"
+                >
+                    <img v-if="imageUrl" :src="imageUrl" class="avatar" />
+                    <el-icon v-else class="avatar-uploader-icon"><Plus /></el-icon>
+                </el-upload>
+                </div>
                 <el-form
                         ref="ruleFormRef"
                         :model="data"
@@ -24,8 +35,22 @@
                     <el-form-item label="Отчество" prop="second_name">
                         <el-input v-model="data.second_name" :clearable="true" :show-word-limit="true" :maxlength="40" :autosize="true"/>
                     </el-form-item>
+                    <el-form-item label="Телефон" prop="telephone">
+                        <el-input v-model="data.telephone" :clearable="true" :show-word-limit="true" :maxlength="11" :autosize="true"/>
+                    </el-form-item>
                     <el-form-item label="Логин" prop="login">
                         <el-input v-model="data.login" :clearable="true" :show-word-limit="true" :minlength="4" :maxlength="20" :autosize="true"/>
+                    </el-form-item>
+
+                    <el-form-item label="Пароль" prop="password" v-if="!data.id">
+                        <el-input v-model="data.password" type="password" autocomplete="off" />
+                    </el-form-item>
+                    <el-form-item label="Подтверждение пароля" prop="checkPass">
+                        <el-input
+                                v-model="data.checkPass"
+                                type="password"
+                                autocomplete="off"
+                        />
                     </el-form-item>
                   <!--  <el-form-item label="Пароль" prop="password" v-if="!data.id">
                         <el-input v-model="data.password" :clearable="true" :show-word-limit="true" :minlength="8" :maxlength="20" :autosize="true"/>
@@ -34,7 +59,6 @@
                         <el-input v-model="data.email" :clearable="true" :autosize="true"/>
                     </el-form-item>
                 </el-form>
-            </div>
         </template>
     </Card>
 </div>

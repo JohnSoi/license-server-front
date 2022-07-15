@@ -1,5 +1,5 @@
 <div class="User__wrapper">
-    <TreeList :source="source" :treeSettings="treeSettings" @nodeClick="nodeClick"/>
+    <GridView :source="source"  @nodeClick="nodeClick"/>
     <UserCard
             :visible="visible"
             :data="data"
@@ -7,4 +7,15 @@
             @cardSave="cardSave"
             v-if="data"
     />
+    <el-table :data="data" stripe class="full-size" v-infinite-scroll="load" @row-click="rowClick">
+        <slot name="content">
+            <el-table-column prop="name" label="Имя" width="auto" />
+            <el-table-column prop="surname" label="Фамилия" width="auto" />
+            <el-table-column prop="second_name" label="Отчество" width="auto" />
+            <el-table-column prop="telephone" label="Телефон" width="auto" />
+            <el-table-column prop="login" label="Логин" width="auto" />
+            <el-table-column prop="email" label="Почта" width="auto" />
+            <el-table-column prop="date_birthday" label="Дата рождения" width="auto" />
+        </slot>
+    </el-table>
 </div>

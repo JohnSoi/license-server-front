@@ -2,14 +2,14 @@
 
 <script lang="ts">
     import { defineComponent } from 'vue';
-    import TreeList from "../../basic/TreeList/TreeList.vue";
+    import GridView from "../../basic/GridView/GridView.vue";
     import SourceService from "../../../services/SourceService";
     import UserCard from "../../card/UserCard/UserCard.vue";
     import {Emmiter} from "../../../helpers/BusEvents";
 
     export default defineComponent({
         name: 'UsersPage',
-        components: {TreeList, UserCard},
+        components: {GridView, UserCard},
         beforeMount(): void {
             Emmiter.on('addButtonClick', async () => {
                 this.visible = true;
