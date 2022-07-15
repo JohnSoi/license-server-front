@@ -1,6 +1,6 @@
 <template>
   <div class="App__wrapper full-screen hidden-overflow flex">
-    <MainMenu v-if="userAuth" :isCollapseMenu="isCollapseMenu" @menuCollapseChange="menuCollapseChange"/>
+    <MainMenu  @menuCollapseChange="menuCollapseChange"/>
     <router-view class="App-View"/>
   </div>
 </template>
