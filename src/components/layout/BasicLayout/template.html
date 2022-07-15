@@ -10,37 +10,13 @@
             />
         </div>
         <div class="Layout-BasicLayout-header__search" :class="{'Layout-BasicLayout-header__search-noFilter': !filterConfig.length}" v-if="showSearch">
-            <el-input v-model.lazy="searchStr" :placeholder="searchTooltip" @input="changeSearchString">
+            <el-input v-model.lazy="searchStr" :placeholder="searchTooltip" @input="changeSearchString" :clearable="true">
                 <template #prefix>
                     <el-icon class="el-input__icon"><Search /></el-icon>
                 </template>
             </el-input>
         </div>
-        <div class="Layout-BasicLayout-header__filter flex flex-align-center flex-justify-center" v-if="filterConfig.length">
-            <i class="fas fa-filter" @click="changeVisibilityFilter"></i>
-            <div class="Layout-BasicLayout-header__filter-wrapper padding-l" v-if="filterVisibility">
-                <div class="Layout-BasicLayout-header__filter-header flex flex-justify-space-between padding-bottom-2xs padding-left-xs padding-right-xs">
-                    <div class="flex">
-                        <i class="fas fa-filter" @click="changeVisibilityFilter"></i>
-                        <h1 class="margin-left-l">Фильтр</h1>
-                    </div>
-                    <el-button type="warning" round @click="applyFilter">Применить</el-button>
-                </div>
-                <div class="Layout-BasicLayout-header__filter-content__main margin-top-xs flex flex-justify-space-between flex-column">
-                    <div class="Layout-BasicLayout-header__filter-content__item flex flex-justify-space-between flex-align-center margin-bottom-s" :key="item.field" v-for="item in filterSource.main">
-                        <span class="Layout-BasicLayout-header__filter-content__item-name">{{ item.title }}</span>
-                        <el-date-picker
-                                class="Layout-BasicLayout-header__filter-content__item-input"
-                                v-model="item.value"
-                                type="date"
-                                :clearable="true"
-                                :placeholder="item.title"
-                                v-if="item.type === 'date'"
-                        />
-                    </div>
-                </div>
-            </div>
-        </div>
+        <Filter :filterConfig="filterConfig"/>
     </div>
     <div class="Layout-BasicLayout__content hidden-overflow">
         <slot name="content"/>

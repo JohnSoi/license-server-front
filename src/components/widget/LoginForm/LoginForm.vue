@@ -3,12 +3,12 @@
 <script lang="ts">
     import {defineComponent} from 'vue';
     import {Lock} from '@element-plus/icons-vue'
-    import SourceService from "../../../services/SourceService";
-    import {IResponse} from "../../../interfaces/SourceServiceInterfaces";
-    import AuthHelpers from "../../../helpers/AuthHelpers";
-    import router from "../../../router";
-    import {Emmiter} from '../../../helpers/BusEvents';
-    import {DEFAULT_URL_PHOTO} from "../../../constants";
+    import SourceService from "@/services/SourceService";
+    import {IResponse} from "@/interfaces/SourceServiceInterfaces";
+    import AuthHelpers from "@/helpers/AuthHelpers";
+    import router from "@/router";
+    import {Emmiter} from '@/helpers/BusEvents';
+    import {DEFAULT_URL_PHOTO} from "@/constants";
 
     export default defineComponent({
         name: "LoginForm",

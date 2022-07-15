@@ -1,4 +1,4 @@
-import {IMenuItem} from "@/src/interfaces/MenuItem";
+import {IMenuItem} from "@/interfaces/MenuItem";
 
 const MenuItems: IMenuItem[] = [
     {

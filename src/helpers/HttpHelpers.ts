@@ -1,8 +1,8 @@
 import axios from "axios";
-import Exception, {ExceptionType} from "../utils/Exception";
+import Exception, {ExceptionType} from "@/utils/Exception";
 import AuthHelper from "./AuthHelpers";
-import {IData, IResponse} from "../interfaces/SourceServiceInterfaces";
-import {ServerConstants} from "../constants";
+import {IData, IResponse} from "@/interfaces/SourceServiceInterfaces";
+import {ServerConstants} from "@/constants";
 
 /**
  * Хелпер для запросов на БЛ

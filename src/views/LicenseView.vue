@@ -9,32 +9,41 @@
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import BasicLayout from "../components/layout/BasicLayout/BasicLayout.vue";
-import Licenses from "../components/page/Licenses/Licenses.vue";
+  import {Options, Vue} from 'vue-class-component';
+  import BasicLayout from "@/components/layout/BasicLayout/BasicLayout.vue";
+  import Licenses from "@/components/page/Licenses/Licenses.vue";
+  import {FILTER_TYPE, FILTER_VIEW_MODE, IFilterItem} from "@/interfaces/FilterItem";
 
-@Options({
+  @Options({
   components: {
     BasicLayout, Licenses
   },
-  data() {
+  data(): {filterConfig: IFilterItem[]} {
     return {
       filterConfig: [
         {
           title: 'Дата создания от',
-          type: 'date',
-          viewMode: 'basic',
+          type: FILTER_TYPE.DATE,
+          viewMode: FILTER_VIEW_MODE.BASIC,
           field: 'dateStart',
           value: null,
           resetValue: null
         },
         {
           title: 'Дата создания до',
-          type: 'date',
-          viewMode: 'basic',
+          type: FILTER_TYPE.DATE,
+          viewMode: FILTER_VIEW_MODE.BASIC,
           field: 'dateEnd',
           value: null,
           resetValue: null
+        },
+        {
+          title: 'Только группы',
+          type: FILTER_TYPE.SWITCH,
+          viewMode: FILTER_VIEW_MODE.ADDITIONAL,
+          field: 'onlyGroups',
+          value: null,
+          resetValue: false
         }
       ]
     }

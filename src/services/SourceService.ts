@@ -1,6 +1,6 @@
-import HttpHelpers from "../helpers/HttpHelpers";
-import Exception, {ExceptionType} from "../utils/Exception";
-import {IData, IFilter, INavigation, IResponse, ISourceServiceParams} from "@/src/interfaces/SourceServiceInterfaces";
+import HttpHelpers from "@/helpers/HttpHelpers";
+import Exception, {ExceptionType} from "@/utils/Exception";
+import {IData, IFilter, INavigation, IResponse, ISourceServiceParams} from "@/interfaces/SourceServiceInterfaces";
 
 /**
  * Класс для источника данных

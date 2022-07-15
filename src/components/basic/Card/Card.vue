@@ -2,7 +2,7 @@
 
 <script lang="ts">
 import {defineComponent} from 'vue';
-import {Emmiter} from "../../../helpers/BusEvents";
+import {Emmiter} from "@/helpers/BusEvents";
 
 export default defineComponent({
   name: 'BaseCard',

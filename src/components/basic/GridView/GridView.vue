@@ -2,7 +2,7 @@
 
 <script lang="ts">
     import { defineComponent } from 'vue';
-    import BasicList from "../../../components/basic/BasicList/BasicList.vue";
+    import BasicList from "@/components/basic/BasicList/BasicList.vue";
 
     export default defineComponent({
         name: 'GridView',

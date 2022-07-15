@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import LoginView from '../views/LoginView.vue'
-import LicenseView from '../views/LicenseView.vue'
-import AuthHelper from '../helpers/AuthHelpers';
+import HomeView from '@/views/HomeView.vue'
+import LoginView from '@/views/LoginView.vue'
+import LicenseView from '@/views/LicenseView.vue'
+import AuthHelper from '@/helpers/AuthHelpers';
 
 const routes: Array<RouteRecordRaw> = [
   {

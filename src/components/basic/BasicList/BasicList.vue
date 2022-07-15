@@ -1,7 +1,16 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
-import SourceService from "../../../services/SourceService";
-import {Emmiter} from "../../../helpers/BusEvents";
+import SourceService from "@/services/SourceService";
+import {Emmiter} from "@/helpers/BusEvents";
+import {throttleCall} from "@/helpers/Core";
+
+const getSource = function(filter: any, self: any) {
+    self.source.list(filter).then((result: any) => {
+        if (result.success) {
+            self.data = result.data;
+        }
+    })
+};
 
 export default defineComponent({
   props: {
@@ -22,9 +31,10 @@ export default defineComponent({
       this.getDataInSource();
     });
   },
-  data() {
+  data(): {[key: string]: any} {
     return {
-      data: null
+      data: null,
+        throttleSource: throttleCall(getSource, 500)
     }
   },
   methods: {
@@ -32,11 +42,7 @@ export default defineComponent({
       return [];
     },
     getDataInSource(filter: any = {}) {
-      this.source.list(filter).then((result) => {
-        if (result.success) {
-          this.data = result.data;
-        }
-      });
+        this.throttleSource(filter, this);
     }
   }
 });

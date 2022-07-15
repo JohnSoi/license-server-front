@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import LoginForm from "../components/widget/LoginForm/LoginForm.vue";
+import LoginForm from "@/components/widget/LoginForm/LoginForm.vue";
 
 @Options({
   components: {

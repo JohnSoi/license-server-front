@@ -33,46 +33,6 @@
           padding-right: @offset_xs;
         }
       }
-
-      &filter {
-        position: relative;
-        i {
-          font-size: @offset_xxls;
-          color: @main-text;
-          cursor: pointer;
-          transition: @transition_delay;
-
-          &:hover {
-            color: @secondary-text
-          }
-        }
-
-        &-wrapper {
-          position: absolute;
-          width: 450px;
-          height: auto;
-          background: aliceblue;
-          z-index: 9;
-          border-radius: 10px;
-          border: 1px solid white;
-          top: 40px;
-          right: 10px;
-          box-shadow: @shadow;
-        }
-
-        &-header {
-          border-bottom: 1px solid grey;
-
-          i {
-            color: @main-text;
-          }
-
-          h1 {
-            font-size: 18px;
-            font-weight: 300;
-          }
-        }
-      }
     }
   }
 }

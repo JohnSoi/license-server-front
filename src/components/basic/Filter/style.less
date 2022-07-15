@@ -1,0 +1,58 @@
+@import "../../../style/platformVar";
+
+.Filter__ {
+  &wrapper {
+    position: relative;
+
+    i {
+      font-size: @offset_xxls;
+      color: @main-text;
+      cursor: pointer;
+      transition: @transition_delay;
+
+      &:hover {
+        color: @secondary-text
+      }
+    }
+  }
+
+  &block {
+    position: absolute;
+    width: 450px;
+    height: auto;
+    background: aliceblue;
+    z-index: 9;
+    border-radius: 10px;
+    border: 1px solid white;
+    top: 40px;
+    right: 10px;
+    box-shadow: @shadow;
+
+    &-header {
+      border-bottom: 1px solid grey;
+
+      i {
+        color: @main-text;
+      }
+
+      h1 {
+        font-size: 18px;
+        font-weight: 300;
+      }
+    }
+
+    &-content {
+      &__main {
+        border-bottom: 1px solid grey;
+      }
+
+      &__additional {
+        h2 {
+          font-size: @offset_x;
+          font-weight: bold;
+          color: @info-text;
+        }
+      }
+    }
+  }
+}

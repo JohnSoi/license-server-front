@@ -4,8 +4,9 @@
     import { defineComponent } from 'vue';
     import { shallowRef } from 'vue'
     import { Search, Plus } from '@element-plus/icons-vue'
-    import {Emmiter} from "../../../helpers/BusEvents";
-    import {debounceCall} from "../../../helpers/Core";
+    import {Emmiter} from "@/helpers/BusEvents";
+    import {debounceCall, throttleCall} from "@/helpers/Core";
+    import Filter from "@/components/basic/Filter/Filter.vue";
 
     const plus = shallowRef(Plus);
 
@@ -32,51 +33,23 @@
                 type: Number
             }
         },
-        beforeMount(): void {
-            this.filterConfig.forEach((item: any) => {
-                if (item.viewMode === 'basic') {
-                    this.filterSource.main.push(item);
-                } else if (item.viewMode === 'additional') {
-                    this.filterSource.additional.push(item);
-                }
-            });
-        },
-        data(): {[key: string]: any, filterSource: {[key: string]: any}} {
+        components: {Filter},
+        data(): {[key: string]: any} {
             return {
                 searchStr: '',
-                filterVisibility: false,
                 plus,
-                filterSource: {
-                    main: [],
-                    additional: []
-                }
+                eventEmitThrottle: debounceCall(this.eventEmit, this.searchDelay)
             }
         },
         methods: {
             onAddButtonClick(): void {
                 Emmiter.emit('addButtonClick');
             },
+            eventEmit(): void {
+                Emmiter.emit('changeSearchString', this.searchStr)
+            },
             changeSearchString(): void {
-                debounceCall(Emmiter.emit('changeSearchString', this.searchStr), this.searchDelay);
-            },
-            changeVisibilityFilter(): void {
-                this.filterVisibility = !this.filterVisibility;
-            },
-            applyFilter(): void {
-                const filters = [
-                    ...this.filterSource.main,
-                    ...this.filterSource.additional,
-                ];
-
-                const filter: {[key: string]: any} = {};
-
-                filters.forEach((item) => {
-                    if (item.value !== item.resetValue) {
-                        filter[item.field] = item.value;
-                    }
-                });
-
-                Emmiter.emit('changeFilter', filter);
+                this.eventEmitThrottle();
             }
         },
     });

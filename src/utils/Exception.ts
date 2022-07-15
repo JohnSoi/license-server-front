@@ -1,6 +1,6 @@
-import {ExceptionType as ExceptionTypeConst} from '../constants/Exception';
+import {ExceptionType as ExceptionTypeConst} from '@/constants/Exception';
 import {ObjectUtils} from "./Object";
-import {PRODUCTION} from "../constants";
+import {PRODUCTION} from "@/constants";
 
 export default class Exception {
     exceptionTemplate = '$components: $message';

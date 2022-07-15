@@ -1,5 +1,5 @@
-import Exception from "../utils/Exception";
-import {ExceptionType} from '../constants/Exception';
+import Exception from "@/utils/Exception";
+import {ExceptionType} from '@/constants/Exception';
 
 /**
  * Базовый класс для всех хранилищ

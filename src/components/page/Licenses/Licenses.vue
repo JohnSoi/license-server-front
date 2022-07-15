@@ -2,10 +2,10 @@
 
 <script lang="ts">
     import { defineComponent } from 'vue';
-    import TreeList from "../../basic/TreeList/TreeList.vue";
-    import SourceService from "../../../services/SourceService";
-    import LicenseCard from "../../card/LicenseCard/LicenseCard.vue";
-    import {Emmiter} from "../../../helpers/BusEvents";
+    import TreeList from "@/components/basic/TreeList/TreeList.vue";
+    import SourceService from "@/services/SourceService";
+    import LicenseCard from "@/components/card/LicenseCard/LicenseCard.vue";
+    import {Emmiter} from "@/helpers/BusEvents";
 
     export default defineComponent({
         name: 'LicensesPage',

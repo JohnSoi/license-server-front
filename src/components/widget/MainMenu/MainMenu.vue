@@ -2,11 +2,11 @@
 
 <script lang="ts">
     import { defineComponent } from 'vue';
-    import {MenuItems} from "../../../constants/MenuItems";
-    import Url from "../../../utils/Url";
-    import AuthHelpers from "../../../helpers/AuthHelpers";
-    import {Emmiter} from '../../../helpers/BusEvents';
-    import {DEFAULT_URL_PHOTO} from "../../../constants";
+    import {MenuItems} from "@/constants/MenuItems";
+    import Url from "@/utils/Url";
+    import AuthHelpers from "@/helpers/AuthHelpers";
+    import {Emmiter} from '@/helpers/BusEvents';
+    import {DEFAULT_URL_PHOTO} from "@/constants";
 
 
     export default defineComponent({

@@ -1,6 +1,6 @@
-import Exception, {ExceptionType} from "../utils/Exception";
+import Exception, {ExceptionType} from "@/utils/Exception";
 import {CookieStorage, SessionStorage} from "./BrowserStorageHelpers";
-import router from "../router";
+import router from "@/router";
 
 /**
  * Синглтон для авторизации
