@@ -39,6 +39,5 @@ export interface ISourceServiceBinding {
     create: string;
     update: string;
     list: string;
-    search: string;
     [key: string]: string;
 }

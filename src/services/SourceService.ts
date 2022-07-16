@@ -22,7 +22,6 @@ export default class SourceService {
             list: 'List',
             update: 'Update',
             create: 'Create',
-            search: 'Search'
         }
     };
     /**
@@ -109,7 +108,7 @@ export default class SourceService {
             searchString,
             filter
         };
-        return await this._sendRequest(null, this._params.binding.search, false, filters);
+        return await this._sendRequest(null, this._params.binding.list, false, filters);
     }
 
     /**

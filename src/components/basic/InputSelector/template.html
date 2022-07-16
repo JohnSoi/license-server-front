@@ -1,0 +1,14 @@
+<div class="InputSelector__wrapper">
+    <el-autocomplete
+            v-model="inputValue"
+            :fetch-suggestions="querySearch"
+            :value-key="displayProperty"
+            clearable
+            :placeholder="placeholder"
+            @select="handleSelect"
+    >
+        <template #suffix>
+            <el-icon class="el-input__icon"><calendar /></el-icon>
+        </template>
+    </el-autocomplete>
+</div>
