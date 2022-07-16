@@ -29,7 +29,7 @@
                 visible: false,
                 data: null,
                 treeSettings: {
-                    children: 'group_uuid',
+                    children: 'group_id',
                     label: 'name',
                 }
             }

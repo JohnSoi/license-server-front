@@ -1,0 +1,12 @@
+<div class="ListView__wrapper">
+    <ul v-infinite-scroll="load" class="full-size ListView__content" style="overflow: auto">
+        <li
+                v-for="item in data"
+                class="ListView__item padding-l cursor-pointer"
+                :key="item[keyProperty]"
+                @click="itemClick(item)"
+        >
+            {{ item[displayProperty] }}
+        </li>
+    </ul>
+</div>

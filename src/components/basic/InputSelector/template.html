@@ -1,4 +1,4 @@
-<div class="InputSelector__wrapper">
+<div class="InputSelector__wrapper full-width">
     <el-autocomplete
             v-model="inputValue"
             :fetch-suggestions="querySearch"
@@ -6,9 +6,16 @@
             clearable
             :placeholder="placeholder"
             @select="handleSelect"
+            class="full-width"
     >
         <template #suffix>
-            <el-icon class="el-input__icon"><calendar /></el-icon>
+            <i class="fa-solid fa-bars cursor-pointer" @click="openSelector" title="Открыть справочник"></i>
         </template>
     </el-autocomplete>
+    <el-drawer v-model="selectorVisible" :show-close="true">
+        <template #header="{ close, titleId, titleClass }">
+            <h4 :id="titleId" :class="titleClass">{{ selectorConfig.title }}</h4>
+        </template>
+        <ListView class="margin-top-xs" :source="source" @itemClick="itemClick"/>
+    </el-drawer>
 </div>
