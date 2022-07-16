@@ -25,7 +25,7 @@
                 default: 'Начните ввод для поиска'
             },
             selectorConfig: {
-                default: {title: 'Выбор из справочника'}
+                default: {title: 'Выбор из справочника', filter: {}}
             },
             value: {
                 default: null

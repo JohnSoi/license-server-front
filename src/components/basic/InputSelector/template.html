@@ -16,6 +16,6 @@
         <template #header="{ close, titleId, titleClass }">
             <h4 :id="titleId" :class="titleClass">{{ selectorConfig.title }}</h4>
         </template>
-        <ListView class="margin-top-xs" :source="source" @itemClick="itemClick"/>
+        <ListView class="margin-top-xs" :source="source" @itemClick="itemClick" :filter="selectorConfig.filter"/>
     </el-drawer>
 </div>

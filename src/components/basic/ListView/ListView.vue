@@ -15,11 +15,23 @@
             displayProperty: {
                 type: String,
                 default: 'name'
+            },
+            filter: {
+                default: {}
             }
         },
         methods: {
             itemClick(item: any): void {
                 this.$emit('itemClick', item);
+            },
+            getDataInSource(filter: any = {}) {
+                filter.withoutHierarchy = true;
+                filter = {
+                    ...filter,
+                    ...this.filter
+                };
+
+                this.throttleSource(filter, this);
             }
         }
     });

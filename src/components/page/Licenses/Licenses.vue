@@ -27,11 +27,7 @@
                     keyProperty: 'id'
                 }),
                 visible: false,
-                data: null,
-                treeSettings: {
-                    children: 'group_id',
-                    label: 'name',
-                }
+                data: null
             }
         },
         methods: {
@@ -46,7 +42,7 @@
                 });
             },
             nodeClick(data: any) {
-                this.data = data;
+                this.data = data.item;
                 this.visible = true;
             }
         }

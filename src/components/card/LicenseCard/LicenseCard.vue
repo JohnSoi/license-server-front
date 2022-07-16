@@ -33,7 +33,10 @@
                 },
                 localData: null,
                 selectorConfig: {
-                    title: 'Выбор группы лицензий'
+                    title: 'Выбор группы лицензий',
+                    filter: {
+                        onlyGroups: true
+                    }
                 },
                 source: new SourceService({endpoint: 'License'})
             }
