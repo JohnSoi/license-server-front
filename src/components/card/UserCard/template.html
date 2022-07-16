@@ -7,18 +7,6 @@
     >
 
         <template #content>
-                <div class="avatar__align" style="display: flex; justify-content: center; padding: 20px 0 20px 0;">
-                <el-upload
-                        class="avatar-uploader"
-                        action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
-                        :show-file-list="false"
-                        :on-success="handleAvatarSuccess"
-                        :before-upload="beforeAvatarUpload"
-                >
-                    <img v-if="imageUrl" :src="imageUrl" class="avatar" />
-                    <el-icon v-else class="avatar-uploader-icon"><Plus /></el-icon>
-                </el-upload>
-                </div>
                 <el-form
                         ref="ruleFormRef"
                         :model="data"
@@ -26,6 +14,17 @@
                         label-width="120px"
                         status-icon
                 >
+                    <el-form-item class="UserCard__avatar-wrapper">
+                        <div class="full-width flex flex-align-center flex-justify-center">
+                            <el-upload
+                                    class="avatar-uploader"
+                                    :show-file-list="false"
+                            >
+                                <img v-if="data.photo_url" :src="data.photo_url" class="avatar" />
+                                <el-icon v-else class="avatar-uploader-icon"><Plus /></el-icon>
+                            </el-upload>
+                        </div>
+                    </el-form-item>
                     <el-form-item label="Имя" prop="name">
                         <el-input v-model="data.name" :clearable="true" :show-word-limit="true" :maxlength="20" :autosize="true"/>
                     </el-form-item>
@@ -45,7 +44,7 @@
                     <el-form-item label="Пароль" prop="password" v-if="!data.id">
                         <el-input v-model="data.password" type="password" autocomplete="off" />
                     </el-form-item>
-                    <el-form-item label="Подтверждение пароля" prop="checkPass">
+                    <el-form-item label="Подтверждение" prop="checkPass" v-if="!data.id && data.password">
                         <el-input
                                 v-model="data.checkPass"
                                 type="password"

@@ -1,14 +1,6 @@
 <div class="User__wrapper">
-    <GridView :source="source"  @nodeClick="nodeClick"/>
-    <UserCard
-            :visible="visible"
-            :data="data"
-            @userCardVisibleChange="cardVisibleChange"
-            @cardSave="cardSave"
-            v-if="data"
-    />
-    <el-table :data="data" stripe class="full-size" v-infinite-scroll="load" @row-click="rowClick">
-        <slot name="content">
+    <GridView :source="source"  @nodeClick="nodeClick">
+        <template #content>
             <el-table-column prop="name" label="Имя" width="auto" />
             <el-table-column prop="surname" label="Фамилия" width="auto" />
             <el-table-column prop="second_name" label="Отчество" width="auto" />
@@ -16,6 +8,13 @@
             <el-table-column prop="login" label="Логин" width="auto" />
             <el-table-column prop="email" label="Почта" width="auto" />
             <el-table-column prop="date_birthday" label="Дата рождения" width="auto" />
-        </slot>
-    </el-table>
+        </template>
+    </GridView>
+    <UserCard
+            :visible="visible"
+            :data="data"
+            @userCardVisibleChange="cardVisibleChange"
+            @cardSave="cardSave"
+            v-if="data"
+    />
 </div>
