@@ -2,9 +2,8 @@
 
 <script lang="ts">
     import { defineComponent } from 'vue';
-    import GridView from "../../basic/GridView/GridView.vue";
-    import SourceService from "../../../services/SourceService";
-    import {Emmiter} from "../../../helpers/BusEvents";
+    import GridView from "@/components/basic/GridView/GridView.vue";
+    import SourceService from "@/services/SourceService";
 
     export default defineComponent({
         name: 'AccrualsPage',

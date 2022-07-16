@@ -10,8 +10,8 @@
 
 <script lang="ts">
     import { Options, Vue } from 'vue-class-component';
-    import BasicLayout from "../components/layout/BasicLayout/BasicLayout.vue";
-    import Users from "../components/page/Users/Users.vue";
+    import BasicLayout from "@/components/layout/BasicLayout/BasicLayout.vue";
+    import Users from "@/components/page/Users/Users.vue";
 
     @Options({
         components: {

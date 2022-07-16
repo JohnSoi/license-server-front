@@ -2,8 +2,7 @@
 
 <script lang="ts">
     import { defineComponent } from 'vue';
-    import Card from "../../basic/Card/Card.vue";
-    import {ObjectUtils} from "@/src/utils/Object";
+    import Card from "@/components/basic/Card/Card.vue";
 
     export default defineComponent({
         name: 'UserCard',

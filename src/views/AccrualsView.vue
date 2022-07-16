@@ -10,8 +10,8 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import BasicLayout from "../components/layout/BasicLayout/BasicLayout.vue";
-import Accruals from "../components/page/Accruals/Accruals.vue";
+import BasicLayout from "@/components/layout/BasicLayout/BasicLayout.vue";
+import Accruals from "@/components/page/Accruals/Accruals.vue";
 
 @Options({
   components: {
