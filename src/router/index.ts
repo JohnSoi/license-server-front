@@ -3,6 +3,7 @@ import HomeView from '@/views/HomeView.vue'
 import LoginView from '@/views/LoginView.vue'
 import LicenseView from '@/views/LicenseView.vue'
 import AuthHelper from '@/helpers/AuthHelpers';
+import UserView from '@/views/UserView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -38,7 +39,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/users',
     name: 'users',
-    component: HomeView
+    component: UserView
   }
 ];
 

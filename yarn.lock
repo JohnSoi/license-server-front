@@ -4427,6 +4427,11 @@
   dependencies:
     "semver" "^6.0.0"
 
+"maska@^1.5.0":
+  "integrity" "sha512-BwZXzs5gHeu6wtn3iWFqrKRtcsM3sTpkHvfAngVNVNlN7tl9ZyQUeHTz11s9Sy7Bq1MoQ+xyR/+IzghY8nR84Q=="
+  "resolved" "https://registry.npmjs.org/maska/-/maska-1.5.0.tgz"
+  "version" "1.5.0"
+
 "mdn-data@2.0.14":
   "integrity" "sha512-dn6wd0uw5GsdswPFfsgMp5NSB0/aDe6fK94YJV/AJDYXL6HVLWBsxeq7js7Ad+mU2K9LAlwpk6kN2D5mwCPVow=="
   "resolved" "https://registry.npmjs.org/mdn-data/-/mdn-data-2.0.14.tgz"
@@ -6269,6 +6274,11 @@
   "integrity" "sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg=="
   "resolved" "https://registry.npmjs.org/uuid/-/uuid-8.3.2.tgz"
   "version" "8.3.2"
+
+"v-mask@^2.3.0":
+  "integrity" "sha512-ap7pTtCTvj25CqX4VYXqudCBd0+XvYyhiiLbzWQQR7AMQosJ2+DPu0a94P9stk0EGmGcmYxJaPkFkfjD8hquWQ=="
+  "resolved" "https://registry.npmjs.org/v-mask/-/v-mask-2.3.0.tgz"
+  "version" "2.3.0"
 
 "v8-compile-cache@^2.0.3":
   "integrity" "sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA=="
