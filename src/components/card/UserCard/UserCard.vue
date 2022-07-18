@@ -2,12 +2,13 @@
 
 <script lang="ts">
     import { defineComponent } from 'vue';
-    import Card from "../../basic/Card/Card.vue";
+    import Card from "@/components/basic/Card/Card.vue";
+    import PhoneNumber from "@/components/PhoneNumber/PhoneNumber.vue";
     import {ObjectUtils} from "@/src/utils/Object";
 
     export default defineComponent({
         name: 'UserCard',
-        components: {Card},
+        components: {Card, PhoneNumber},
         props: {
             visible: {
                 default: false,
@@ -53,7 +54,7 @@
                     ],
                     telephone: [
                         { message: 'Введите телефон', trigger: 'blur' },
-                        { type: 'phone', message: 'Введите телефон', trigger: 'blur'}
+                        { type: 'phone', message: 'Введите телефон', trigger: 'blur'},
                     ],
                 },
                 localData: null
