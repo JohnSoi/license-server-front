@@ -2,7 +2,7 @@
 
 <script lang="ts">
     import { defineComponent } from 'vue';
-    import Card from "../../basic/Card/Card.vue";
+    import Card from "@/components/basic/Card/Card.vue";
     import InputSelector from '@/components/basic/InputSelector/InputSelector.vue';
     import {ObjectUtils} from "@/utils/Object";
     import SourceService from "@/services/SourceService";

@@ -10,8 +10,8 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import BasicLayout from "../components/layout/BasicLayout/BasicLayout.vue";
-import Products from "../components/page/Products/Products.vue";
+import BasicLayout from "@/components/layout/BasicLayout/BasicLayout.vue";
+import Products from "@/components/page/Products/Products.vue";
 import {FILTER_TYPE, FILTER_VIEW_MODE, IFilterItem} from "@/interfaces/FilterItem";
 
 @Options({

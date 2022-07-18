@@ -52,6 +52,3 @@
 
 export default class HomeView extends Vue {}
 </script>
-
-<!--'is_Active'-->
-<!--is_paid-->
