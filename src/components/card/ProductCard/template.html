@@ -1,0 +1,35 @@
+<div class="ProductCard__wrapper">
+    <Card
+        :title="computedTitle"
+        :visible="cardVisible"
+        :saveButtonDisabled="saveButtonDisabled"
+        @cardVisibleChange="cardVisibleChange"
+        @cardSave="cardSave"
+    >
+        <template #content>
+            <div class="ProductCard__form">
+                <el-form
+                        ref="ruleFormRef"
+                        :model="data"
+                        :rules="rules"
+                        label-width="180px"
+                        status-icon
+                >
+                    <el-form-item label="Название" prop="name">
+                        <el-input v-model="data.name" :clearable="true" :show-word-limit="true" :maxlength="40" :autosize="true"/>
+                    </el-form-item>                    
+                    <el-form-item label="Описание" prop="description">
+                        <el-input v-model="data.description" :clearable="true" :show-word-limit="true" type="textarea"/>
+                    </el-form-item>
+                    <el-form-item label="Группа лицензий" prop="group_id">
+                        <InputSelector :value="localData.group_id"
+                                       :source="source"
+                                       :selectorConfig="selectorConfig"
+                                       @selectedChange="selectedChange"
+                                       placeholder="Начните вводить название лицензии"/>
+                    </el-form-item>
+                </el-form>
+            </div>
+        </template>
+    </Card>
+</div>
