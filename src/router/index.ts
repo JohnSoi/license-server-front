@@ -5,6 +5,7 @@ import LicenseView from '@/views/LicenseView.vue'
 import AuthHelper from '@/helpers/AuthHelpers';
 import UserView from '@/views/UserView.vue'
 import AccrualsView from "@/views/AccrualsView.vue";
+import ClientView from "@/views/ClientView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -30,7 +31,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/clients',
     name: 'clients',
-    component: HomeView
+    component: ClientView
   },
   {
     path: '/accruals',

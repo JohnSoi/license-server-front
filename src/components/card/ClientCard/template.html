@@ -1,0 +1,31 @@
+<div class="ClientCard__wrapper">
+    <Card
+            :title="computedTitle"
+            :visible="cardVisible"
+            @cardVisibleChange="cardVisibleChange"
+            @cardSave="cardSave"
+    >
+        <template #content>
+            <div class="ClientCard__form">
+                <el-form
+                        ref="ruleFormRef"
+                        :model="data"
+                        :rules="rules"
+                        label-width="120px"
+                        status-icon
+                >
+
+                    <el-form-item label="Имя" prop="name">
+                        <el-input v-model="data.name" :clearable="true" :show-word-limit="true" :maxlength="40" :autosize="true"/>
+                    </el-form-item>
+                    <el-form-item label="ИНН" prop="inn" >
+                        <el-input v-model="data.inn" placeholder="Введите ИНН" :show-number-limit="true" :clearable="true" minlength="10" maxlength="12"/>
+                    </el-form-item>
+                    <el-form-item label="КПП" prop="kpp">
+                        <el-input v-model="data.kpp" placeholder="Введите КПП" :clearable="true" minlength="9" maxlength="9"/>
+                    </el-form-item>
+                </el-form>
+            </div>
+        </template>
+    </Card>
+</div>
