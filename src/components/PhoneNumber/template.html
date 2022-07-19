@@ -1,9 +1,0 @@
-<el-input
-        v-model="data.telephone"
-        placeholder="Номер телефона"
-        :clearable="true" :show-word-limit="true"
-        :maxlength="11"
-        :autosize="true"
-        :formatter="(value) => `+7 ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')"
-        :parser="(value) => value.replace(/\+7'\s?|(,*)/g, '')"
-/>
