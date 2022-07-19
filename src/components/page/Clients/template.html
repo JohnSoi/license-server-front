@@ -1,0 +1,18 @@
+<div class="Client__wrapper">
+    <GridView :source="source" :treeSettings="treeSettings" @nodeClick="nodeClick"/>
+    <ClientCard
+            :visible="visible"
+            :data="data"
+            @clientCardVisibleChange="cardVisibleChange"
+            @cardSave="cardSave"
+            v-if="data"
+    />
+    <el-table :data="data" stripe class="full-size" v-infinite-scroll="load" @row-click="rowClick">
+        <slot name="content">
+            <el-table-column prop="name" label="Имя" width="auto" />
+            <el-table-column prop="inn" label="ИНН" width="auto" />
+            <el-table-column prop="kpp" label="КПП" width="auto" />
+            <el-table-column prop="is_active" label="Активность" width="auto" />
+        </slot>
+    </el-table>
+</div>

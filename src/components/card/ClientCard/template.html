@@ -1,0 +1,59 @@
+<div class="ClientCard__wrapper">
+    <Card
+            :title="computedTitle"
+            :visible="cardVisible"
+            :saveButtonDisabled="saveButtonDisabled"
+            @cardVisibleChange="cardVisibleChange"
+            @cardSave="cardSave"
+    >
+        <template #content>
+            <div class="ClientCard__form">
+                <el-form
+                        ref="ruleFormRef"
+                        :model="localData"
+                        :rules="rules"
+                        label-width="120px"
+                        status-icon
+                >
+                    <div class="ClientCard__avatar" style="margin-bottom: 20px;">
+                        <div class="ClientCard-avatar__pic" >
+                            <h3>Аватар</h3>
+                            <el-avatar
+                                    :src="avatarUrl"
+                                    size="large"
+                            />
+                            <div class="ClientCard-avatar__button" >
+                                <input ref="file" type="file">
+                                <div v-on:click="selectFile()"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ClientCard__avatar-inputs">
+                        <el-form-item label="Имя" prop="name">
+                            <el-input v-model="localData.name" :clearable="true" :show-word-limit="true" :maxlength="40"
+                                      :autosize="true"/>
+                        </el-form-item>
+                        <el-form-item label="ИНН" prop="inn">
+                            <el-input v-model="localData.inn"  placeholder="Введите ИНН" :show-number-limit="true"
+                                      :clearable="true" minlength="10" maxlength="12"/>
+                        </el-form-item>
+                        <el-form-item label="КПП" prop="kpp">
+                            <el-input v-model="localData.kpp"  placeholder="Введите КПП" :clearable="true"
+                                      :show-number-limit="true" minlength="9" maxlength="9"/>
+                        </el-form-item>
+                        <el-form-item label="Активность" prop="is_active">
+                        <el-tooltip :content="'Активность: ' + Boolean" placement="top">
+                            <el-switch
+                                    v-model="Boolean"
+                                    style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949"
+                                    active-Boolean="True"
+                                    inactive-Boolean="False"
+                            />
+                        </el-tooltip>
+                        </el-form-item>
+                    </div>
+                </el-form>
+            </div>
+        </template>
+    </Card>
+</div>

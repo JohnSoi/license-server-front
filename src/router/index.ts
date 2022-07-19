@@ -2,9 +2,11 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
 import LoginView from '@/views/LoginView.vue'
 import LicenseView from '@/views/LicenseView.vue'
+import ProductView from '@/views/ProductView.vue'
 import AuthHelper from '@/helpers/AuthHelpers';
 import UserView from '@/views/UserView.vue'
 import AccrualsView from "@/views/AccrualsView.vue";
+import ClientView from "@/views/ClientView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -25,12 +27,12 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/products',
     name: 'products',
-    component: HomeView
+    component: ProductView
   },
   {
     path: '/clients',
     name: 'clients',
-    component: HomeView
+    component: ClientView
   },
   {
     path: '/accruals',

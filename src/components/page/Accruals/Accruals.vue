@@ -12,7 +12,7 @@
         data() {
             return {
                 source: new SourceService({
-                    endpoint: 'Accruals',
+                    endpoint: 'Accrual',
                     keyProperty: 'id'
                 }),
                 visible: false,

@@ -35,12 +35,19 @@
                         <el-input v-model="data.second_name" :clearable="true" :show-word-limit="true" :maxlength="40" :autosize="true"/>
                     </el-form-item>
                     <el-form-item label="Телефон" prop="telephone">
-                        <el-input v-model="data.telephone" :clearable="true" :show-word-limit="true" :maxlength="11" :autosize="true"/>
+                        <el-input
+                                v-model="data.telephone"
+                                placeholder="Номер телефона"
+                                :clearable="true" :show-word-limit="true"
+                                :maxlength="11"
+                                :autosize="true"
+                                :formatter="(value) => `+7 ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')"
+                                :parser="(value) => value.replace(/\+7'\s?|(,*)/g, '')"
+                        />
                     </el-form-item>
                     <el-form-item label="Логин" prop="login">
                         <el-input v-model="data.login" :clearable="true" :show-word-limit="true" :minlength="4" :maxlength="20" :autosize="true"/>
                     </el-form-item>
-
                     <el-form-item label="Пароль" prop="password" v-if="!data.id">
                         <el-input v-model="data.password" type="password" autocomplete="off" />
                     </el-form-item>
@@ -51,9 +58,6 @@
                                 autocomplete="off"
                         />
                     </el-form-item>
-                  <!--  <el-form-item label="Пароль" prop="password" v-if="!data.id">
-                        <el-input v-model="data.password" :clearable="true" :show-word-limit="true" :minlength="8" :maxlength="20" :autosize="true"/>
-                    </el-form-item> -->
                     <el-form-item label="Email:" prop="email">
                         <el-input v-model="data.email" :clearable="true" :autosize="true"/>
                     </el-form-item>
