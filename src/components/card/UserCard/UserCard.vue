@@ -4,10 +4,11 @@
     import { defineComponent } from 'vue';
     import Card from "@/components/basic/Card/Card.vue";
     import PhoneNumber from "@/components/basic/PhoneNumber/PhoneNumber.vue";
+    import AvatarLoader from "@/components/basic/AvatarLoader/AvatarLoader.vue";
 
     export default defineComponent({
         name: 'UserCard',
-        components: {Card, PhoneNumber},
+        components: {Card, PhoneNumber, AvatarLoader},
         props: {
             visible: {
                 default: false,
@@ -77,6 +78,9 @@
             },
             numberChange(value: string): void {
                 this.localData.telephone = value;
+            },
+            setAvatar(value: string): void {
+                this.localData.photo_url = value;
             }
         },
         computed: {

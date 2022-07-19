@@ -5,12 +5,7 @@
 
     export default defineComponent({
         name: 'PhoneNumberView',
-        props: {
-          value:{
-              type: String,
-              required: true
-          },
-        },
+        props: ['value'],
         beforeMount(): void {
             this.number = this.value || '+7  ';
         },

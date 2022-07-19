@@ -5,10 +5,7 @@
     import Card from "@/components/basic/Card/Card.vue";
     import {ObjectUtils} from "@/utils/Object";
     import SourceService from "@/services/SourceService";
-    import PhoneNumber from "@/components/PhoneNumber/PhoneNumber.vue";
-    import { ref } from 'vue';
-
-    const value1 = ref(true)
+    import PhoneNumber from "@/components/basic/PhoneNumber/PhoneNumber.vue";
 
     export default defineComponent({
         name: 'ClientCard',

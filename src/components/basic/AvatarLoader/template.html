@@ -1,0 +1,11 @@
+<div class="full-width flex flex-align-center flex-justify-center AvatarLoader__wrapper">
+    <el-upload
+            :show-file-list="false"
+            accept="image/*"
+            :action="loadAvatarPath"
+            :on-success="handleAvatarSuccess"
+    >
+        <img v-if="avatarUrl" :src="avatarUrl" />
+        <el-icon v-else class="avatar-uploader-icon"><Plus /></el-icon>
+    </el-upload>
+</div>

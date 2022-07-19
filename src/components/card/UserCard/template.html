@@ -15,15 +15,7 @@
                         status-icon
                 >
                     <el-form-item class="UserCard__avatar-wrapper">
-                        <div class="full-width flex flex-align-center flex-justify-center">
-                            <el-upload
-                                    class="avatar-uploader"
-                                    :show-file-list="false"
-                            >
-                                <img v-if="localData.photo_url" :src="data.photo_url" class="avatar" />
-                                <el-icon v-else class="avatar-uploader-icon"><Plus /></el-icon>
-                            </el-upload>
-                        </div>
+                        <AvatarLoader :avatarPath="localData.photo_url" @setAvatar="setAvatar"></AvatarLoader>
                     </el-form-item>
                     <el-form-item label="Имя" prop="name">
                         <el-input v-model="localData.name" :clearable="true" :show-word-limit="true" :maxlength="20" :autosize="true"/>
@@ -38,7 +30,7 @@
                         <PhoneNumber :value="localData.telephone" @numberChange="numberChange"/>
                     </el-form-item>
                     <el-form-item label="Логин" prop="login">
-                        <el-input v-model="localData.login" :clearable="true" :show-word-limit="truse" :minlength="4" :maxlength="20" :autosize="true"/>
+                        <el-input v-model="localData.login" :clearable="true" :show-word-limit="true" :minlength="4" :maxlength="20" :autosize="true"/>
                     </el-form-item>
                     <el-form-item label="Пароль" prop="password" v-if="!data.id">
                         <el-input v-model="localData.password" type="password" autocomplete="off" />
