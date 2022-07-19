@@ -4,7 +4,7 @@
     import { defineComponent } from 'vue';
     import Card from "@/components/basic/Card/Card.vue";
     import PhoneNumber from "@/components/PhoneNumber/PhoneNumber.vue";
-    import {ObjectUtils} from "@/src/utils/Object";
+
 
     export default defineComponent({
         name: 'UserCard',

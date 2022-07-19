@@ -28,10 +28,6 @@
                 }),
                 visible: false,
                 data: null,
-                treeSettings: {
-                    children: 'group_uuid',
-                    label: 'name',
-                }
             }
         },
         methods: {
@@ -39,7 +35,11 @@
                 this.visible = value;
             },
             cardSave(data: any) {
-                this.source.update(data);
+                this.source.update(data).then((result: any) => {
+                    if (result.success) {
+                        this.data = result.data;
+                    }
+                });
             },
             nodeClick(data: any) {
                 this.data = data;
