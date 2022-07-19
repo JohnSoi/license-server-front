@@ -3,8 +3,7 @@
 <script lang="ts">
     import { defineComponent } from 'vue';
     import Card from "@/components/basic/Card/Card.vue";
-    import PhoneNumber from "@/components/PhoneNumber/PhoneNumber.vue";
-
+    import PhoneNumber from "@/components/basic/PhoneNumber/PhoneNumber.vue";
 
     export default defineComponent({
         name: 'UserCard',
@@ -54,9 +53,8 @@
                         { type: 'email', message: 'Введите корректную почту', trigger: 'blur'}
                     ],
                     telephone: [
-                        { message: 'Введите телефон', trigger: 'blur' },
                         { type: 'phone', message: 'Введите телефон', trigger: 'blur'},
-                    ],
+                    ]
                 },
                 localData: null
             }
@@ -76,6 +74,9 @@
                 } else {
                     callback()
                 }
+            },
+            numberChange(value: string): void {
+                this.localData.telephone = value;
             }
         },
         computed: {
