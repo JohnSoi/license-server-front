@@ -30,19 +30,18 @@
                         resetValue: null
                     },
                     {
+                        title: 'Дата создания до',
+                        type: FILTER_TYPE.DATE,
+                        viewMode: FILTER_VIEW_MODE.BASIC,
+                        field: 'dateEnd',
+                        value: null,
+                        resetValue: null
+                    },
+                    {
                         title: 'Активность',
                         type: FILTER_TYPE.SWITCH,
                         viewMode: FILTER_VIEW_MODE.ADDITIONAL,
                         field: 'isActive',
-                        value: null,
-                        resetValue: null
-                    },
-
-                    {
-                        title: 'Наличие платных лицензий',
-                        type: FILTER_TYPE.SWITCH,
-                        viewMode: FILTER_VIEW_MODE.ADDITIONAL,
-                        field: 'isPaid',
                         value: null,
                         resetValue: false
                     }

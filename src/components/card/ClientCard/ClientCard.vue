@@ -5,11 +5,14 @@
     import Card from "@/components/basic/Card/Card.vue";
     import {ObjectUtils} from "@/utils/Object";
     import SourceService from "@/services/SourceService";
-    import {DEFAULT_URL_PHOTO} from "@/constants";
+    import PhoneNumber from "@/components/PhoneNumber/PhoneNumber.vue";
+    import { ref } from 'vue';
+
+    const value1 = ref(true)
 
     export default defineComponent({
         name: 'ClientCard',
-        components: {Card},
+        components: {Card, PhoneNumber},
         props: {
             visible: {
                 default: false,
@@ -17,17 +20,17 @@
             },
             data: {
                 required: true,
+                default: null,
+            },
+            menuItems: {
                 default: null
             },
-
         },
         beforeMount(): void {
             this.localData = ObjectUtils.Clone(this.data);
         },
         data(): {[key: string]: any} {
             return {
-                avatarUrl: DEFAULT_URL_PHOTO,
-                defaultAvatar: DEFAULT_URL_PHOTO,
                 rules: {
                     name: [
                         {required: true, message: 'Введите имя', trigger: 'blur'},
@@ -36,12 +39,21 @@
                     inn: [
                         {required: true, message: 'Введите ИНН', trigger: 'blur'},
                         { min: 10, max: 12, message: 'Длинна должна быть от 10 до 12 символов', trigger: 'blur'},
-
                     ],
                     kpp: [
                         {required: true, message: 'Введите КПП', trigger: 'blur'},
-                        {type:"number",min: 9, max: 9, message: 'Длинна должна быть 9 символов', trigger: 'blur'},
-
+                        {min: 9, message: 'Длинна должна быть 9 символов', trigger: 'blur'},
+                    ],
+                    is_active: [
+                        {type: "boolean"},
+                    ],
+                    email: [
+                        { required: true, message: 'Введите почту', trigger: 'blur' },
+                        { type: 'email', message: 'Введите корректную почту', trigger: 'blur'}
+                    ],
+                    phone: [
+                        { message: 'Введите телефон', trigger: 'blur' },
+                        { type: 'phone', message: 'Введите телефон', trigger: 'blur'},
                     ],
                 },
                 localData: null,
