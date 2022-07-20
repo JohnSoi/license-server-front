@@ -41,7 +41,7 @@ import {FILTER_TYPE, FILTER_VIEW_MODE, IFilterItem} from "@/interfaces/FilterIte
           title: 'Сумма по возрастанию',
           type: FILTER_TYPE.SWITCH,
           viewMode: FILTER_VIEW_MODE.ADDITIONAL,
-          field: 'summax',
+          field: 'sumMax',
           value: null,
           resetValue: false
         },
@@ -49,7 +49,7 @@ import {FILTER_TYPE, FILTER_VIEW_MODE, IFilterItem} from "@/interfaces/FilterIte
           title: 'Сумма по убыванию',
           type: FILTER_TYPE.SWITCH,
           viewMode: FILTER_VIEW_MODE.ADDITIONAL,
-          field: 'summin',
+          field: 'sumMin',
           value: null,
           resetValue: false
         }
