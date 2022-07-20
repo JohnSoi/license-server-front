@@ -55,6 +55,9 @@
                     ],
                     telephone: [
                         { type: 'phone', message: 'Введите телефон', trigger: 'blur'},
+                    ],
+                    date_birthday: [
+                        {required: true, message: 'Выберите дату', trigger: 'blur'}
                     ]
                 },
                 localData: null

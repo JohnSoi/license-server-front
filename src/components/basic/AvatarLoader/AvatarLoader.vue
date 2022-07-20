@@ -18,7 +18,11 @@
             handleAvatarSuccess(response: any, uploadFile: any) {
                 this.avatarUrl = response;
             },
-            beforeAvatarUpload (rawFile: any) {
+            beforeAvatarUpload(rawFile: any) {
+                if (rawFile.size / 1024 /1024 > 2){
+                    ElMessage.error('Фото не должно превышать размер в 2 Мбайт');
+                    return false
+                }
                 return true
             }
         },

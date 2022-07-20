@@ -14,9 +14,11 @@
                         label-width="120px"
                         status-icon
                 >
+                    <div style="display: flex; justify-content: center;">
                     <el-form-item class="UserCard__avatar-wrapper">
-                        <AvatarLoader :avatarPath="localData.photo_url" @setAvatar="setAvatar"></AvatarLoader>
+                        <AvatarLoader :avatarPath="localData.photo_url" :before-upload="beforeAvatarUpload" @setAvatar="setAvatar"></AvatarLoader>
                     </el-form-item>
+                    </div>
                     <el-form-item label="Имя" prop="name">
                         <el-input v-model="localData.name" :clearable="true" :show-word-limit="true" :maxlength="20" :autosize="true"/>
                     </el-form-item>
@@ -45,7 +47,7 @@
                     <el-form-item label="Email:" prop="email">
                         <el-input v-model="localData.email" :clearable="true" :autosize="true"/>
                     </el-form-item>
-                    <el-form-item label="Дата рождения" prop="date_birthday">
+                    <el-form-item label="Дата рождения" prop="date_birthday" class="UserCard__DataPicker-wrapper">
                         <el-date-picker type="date" v-model="localData.date_birthday"/>
                     </el-form-item>
                 </el-form>

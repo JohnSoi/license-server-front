@@ -32,7 +32,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/clients',
     name: 'clients',
-    component: ClientView
+    component: HomeView
   },
   {
     path: '/accruals',
