@@ -4,7 +4,6 @@
     import { defineComponent } from 'vue';
     import GridView from "@/components/basic/GridView/GridView.vue";
     import SourceService from "@/services/SourceService";
-    import {Emmiter} from "@/helpers/BusEvents";
     import {ObjectUtils} from "@/utils/Object";
 
     export default defineComponent({
@@ -20,11 +19,7 @@
                     keyProperty: 'id'
                 }),
                 visible: false,
-                data: null,
-                treeSettings: {
-                    children: 'group_id',
-                    label: 'name',
-                }
+                data: null
             }
         },
         methods: {
