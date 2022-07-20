@@ -3,6 +3,7 @@
 <script lang="ts">
     import { defineComponent } from 'vue';
     import SourceService from "@/services/SourceService";
+    import { BarChart } from 'vue-chart-3';
 
     export default defineComponent({
         name: 'BarChart',
@@ -10,6 +11,10 @@
             source: {
                 required: true,
                 type: SourceService
+            },
+            methodName: {
+                type: String,
+                default: 'ChartData'
             }
         },
         async beforeMount() {
