@@ -23,8 +23,6 @@
             }
         },
         methods: {
-
-
             nodeClick(data: any) {
                 this.data = data;
                 this.visible = true;
