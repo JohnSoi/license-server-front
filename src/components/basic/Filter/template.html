@@ -38,6 +38,13 @@
                         style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949"
                         v-if="item.type === filterType.SWITCH"
                 />
+                <el-input
+                        v-model="item.value"
+                        style="width: 220px;"
+                        :clearable="true"
+                        :placeholder="item.title"
+                        v-if="item.type === filterType.INPUT"
+                />
             </div>
         </div>
     </div>

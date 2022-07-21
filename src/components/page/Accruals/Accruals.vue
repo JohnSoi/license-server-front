@@ -4,14 +4,12 @@
     import { defineComponent } from 'vue';
     import GridView from "@/components/basic/GridView/GridView.vue";
     import SourceService from "@/services/SourceService";
-    import {ObjectUtils} from "@/utils/Object";
+
 
     export default defineComponent({
         name: 'AccrualsPage',
         components: {GridView},
-        beforeMount(): void {
-            this.data = ObjectUtils.Clone(this.data);
-        },
+
         data() {
             return {
                 source: new SourceService({
@@ -23,10 +21,7 @@
             }
         },
         methods: {
-            nodeClick(data: any) {
-                this.data = data;
-                this.visible = true;
-            }
+
         }
     });
 </script>

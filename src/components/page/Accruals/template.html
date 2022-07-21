@@ -1,11 +1,10 @@
 <div class="Accruals__wrapper">
     <GridView :source="source" @nodeClick="nodeClick">
         <template #content>
-            <el-table-column prop="license_uuid" label="Название лицензии" width="220" />
-            <el-table-column prop="product" label="Продукт" width="180" />
-            <el-table-column prop="client_uuid" label="Клиент" width="180" />
-            <el-table-column prop="sum" label="Сумма" width="180" />
-            <el-table-column prop="create_at" label="Дата" width="180" />
+            <el-table-column prop="license_uuid" label="Название лицензии" width="300" />
+            <el-table-column prop="client_uuid" label="Клиент" width="*" />
+            <el-table-column prop="sum" label="Сумма" width="*" />
+            <el-table-column prop="create_at" label="Дата" width="*" />
         </template>
     </GridView>
 </div>

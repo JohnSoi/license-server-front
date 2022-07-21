@@ -38,18 +38,18 @@ import {FILTER_TYPE, FILTER_VIEW_MODE, IFilterItem} from "@/interfaces/FilterIte
           resetValue: null
         },
         {
-          title: 'Сумма по возрастанию',
-          type: FILTER_TYPE.SWITCH,
+          title: 'Сумма от',
+          type: FILTER_TYPE.INPUT,
           viewMode: FILTER_VIEW_MODE.ADDITIONAL,
-          field: 'sumMax',
+          field: 'sumFrom',
           value: null,
           resetValue: false
         },
         {
-          title: 'Сумма по убыванию',
-          type: FILTER_TYPE.SWITCH,
+          title: 'Сумма до',
+          type: FILTER_TYPE.INPUT,
           viewMode: FILTER_VIEW_MODE.ADDITIONAL,
-          field: 'sumMin',
+          field: 'sumTo',
           value: null,
           resetValue: false
         }
