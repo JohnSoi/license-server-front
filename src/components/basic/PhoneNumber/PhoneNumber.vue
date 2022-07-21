@@ -16,9 +16,9 @@
         },
         methods: {
             numberChange() {
-                this.number = this.number.replace(/[^0-9]/g, '')
-                    .replace(/^\+7(\d{3})?(\d{3})?(\d{4})?/g, '+7 ($1) $2-$3')
+                this.number = this.number.replace(/^\+7(\d{3})?(\d{3})?(\d{4})?/g, '+7 ($1) $2-$3')
                 this.$emit('numberChange', this.number);
+                    // .number.replace(/[^0-9]/g, '')
             }
         }
     });

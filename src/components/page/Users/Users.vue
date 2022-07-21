@@ -41,7 +41,7 @@
             cardSave(data: any) {
                 this.source.update(data);
             },
-            nodeClick(data: any) {
+            rowClick(data: any) {
                 this.data = data;
                 this.visible = true;
             }

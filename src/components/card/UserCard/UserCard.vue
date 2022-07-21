@@ -27,7 +27,7 @@
                 rules: {
                     name: [
                         { required: true, message: 'Введите имя пользователя', trigger: 'blur' },
-                        { min: 5, max: 20, message: 'Длинна должна быть от 5 до 20 символов', trigger: 'blur' },
+                        { min: 2, max: 20, message: 'Длинна должна быть от 2 до 20 символов', trigger: 'blur' },
                     ],
                     surname: [
                         { required: true, message: 'Введите фамилию пользователя', trigger: 'blur' },
@@ -53,7 +53,7 @@
                         { required: true, message: 'Введите почту', trigger: 'blur' },
                         { type: 'email', message: 'Введите корректную почту', trigger: 'blur'}
                     ],
-                    telephone: [
+                    phone: [
                         { type: 'phone', message: 'Введите телефон', trigger: 'blur'},
                     ],
                     date_birthday: [
@@ -80,7 +80,7 @@
                 }
             },
             numberChange(value: string): void {
-                this.localData.telephone = value;
+                this.localData.phone = value;
             },
             setAvatar(value: string): void {
                 this.localData.photo_url = value;

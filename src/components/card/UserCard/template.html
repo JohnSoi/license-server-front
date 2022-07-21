@@ -15,8 +15,8 @@
                         status-icon
                 >
                     <div style="display: flex; justify-content: center;">
-                    <el-form-item class="UserCard__avatar-wrapper">
-                        <AvatarLoader :avatarPath="localData.photo_url" :before-upload="beforeAvatarUpload" @setAvatar="setAvatar"></AvatarLoader>
+                    <el-form-item class="UserCard__avatar-wrapper" v-bind:class="{'AvatarLoader__border': !!localData.photo_url}">
+                        <AvatarLoader :avatarPath="localData.photo_url" :before-upload="beforeAvatarUpload" @setAvatar="setAvatar" ></AvatarLoader>
                     </el-form-item>
                     </div>
                     <el-form-item label="Имя" prop="name">
@@ -28,8 +28,8 @@
                     <el-form-item label="Отчество" prop="second_name">
                         <el-input v-model="localData.second_name" :clearable="true" :show-word-limit="true" :maxlength="40" :autosize="true"/>
                     </el-form-item>
-                    <el-form-item label="Телефон" prop="telephone">
-                        <PhoneNumber :value="localData.telephone" @numberChange="numberChange"/>
+                    <el-form-item label="Телефон" prop="phone">
+                        <PhoneNumber :value="localData.phone" @numberChange="numberChange"/>
                     </el-form-item>
                     <el-form-item label="Логин" prop="login">
                         <el-input v-model="localData.login" :clearable="true" :show-word-limit="true" :minlength="4" :maxlength="20" :autosize="true"/>
