@@ -27,11 +27,7 @@
                     keyProperty: 'id'
                 }),
                 visible: false,
-                data: null,
-                treeSettings: {
-                    children: 'group_uuid',
-                    label: 'name',
-                }
+                data: null
             }
         },
         methods: {
@@ -43,13 +39,13 @@
                   if (result.success) {
                     this.data = result.data;
                   }
-                })
+                });
             },
             nodeClick(data: any) {
-                this.data = data;
+                this.data = data.item;
                 this.visible = true;
             }
         }
     });
 </script>
-<style scoped lang="less" src="./style.less"></style>
+<style lang="less" src="./style.less"></style>

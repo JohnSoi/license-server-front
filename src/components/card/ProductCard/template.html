@@ -10,19 +10,30 @@
             <div class="ProductCard__form">
                 <el-form
                         ref="ruleFormRef"
-                        :model="data"
+                        :model="localData"
                         :rules="rules"
                         label-width="180px"
                         status-icon
                 >
+                    <el-form-item class="ProductCard__avatar-wrapper">
+                        <div class="full-width flex flex-align-center flex-justify-center">
+                            <el-upload
+                                    class="avatar-uploader"
+                                    :show-file-list="false"
+                            >
+                                <img v-if="localData.photo_url" :src="localData.photo_url" class="avatar" />
+                                <el-icon v-else class="avatar-uploader-icon"><Plus /></el-icon>
+                            </el-upload>
+                        </div>
+                    </el-form-item>
                     <el-form-item label="Название" prop="name">
-                        <el-input v-model="data.name" :clearable="true" :show-word-limit="true" :maxlength="40" :autosize="true"/>
+                        <el-input v-model="localData.name" :clearable="true" :show-word-limit="true" :maxlength="40" :autosize="true"/>
                     </el-form-item>                    
                     <el-form-item label="Описание" prop="description">
-                        <el-input v-model="data.description" :clearable="true" :show-word-limit="true" type="textarea"/>
+                        <el-input v-model="localData.description" :clearable="true" :show-word-limit="true" type="textarea"/>
                     </el-form-item>
-                    <el-form-item label="Группа лицензий" prop="group_id">
-                        <InputSelector :value="localData.group_id"
+                    <el-form-item label="Группа лицензий" prop="group_uuid">
+                        <InputSelector :value="localData.group_uuid"
                                        :source="source"
                                        :selectorConfig="selectorConfig"
                                        @selectedChange="selectedChange"
@@ -33,3 +44,4 @@
         </template>
     </Card>
 </div>
+

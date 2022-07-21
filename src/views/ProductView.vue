@@ -12,7 +12,7 @@
 import { Options, Vue } from 'vue-class-component';
 import BasicLayout from "@/components/layout/BasicLayout/BasicLayout.vue";
 import Products from "@/components/page/Products/Products.vue";
-import {FILTER_TYPE, FILTER_VIEW_MODE, IFilterItem} from "@/interfaces/FilterItem";
+import {FILTER_TYPE, FILTER_VIEW_MODE} from "@/interfaces/FilterItem";
 
 @Options({
   components: {
@@ -36,14 +36,6 @@ import {FILTER_TYPE, FILTER_VIEW_MODE, IFilterItem} from "@/interfaces/FilterIte
           field: 'dateEnd',
           value: null,
           resetValue: null
-        },
-        {
-          title: 'Только группы',
-          type: FILTER_TYPE.SWITCH,
-          viewMode: FILTER_VIEW_MODE.ADDITIONAL,
-          field: 'onlyGroups',
-          value: null,
-          resetValue: false
         }
       ]
     }

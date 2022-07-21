@@ -7,7 +7,6 @@
     import {ObjectUtils} from "@/utils/Object";
     import SourceService from "@/services/SourceService";
 
-
     export default defineComponent({
         name: 'ProductCard',
         components: {Card, InputSelector},
@@ -34,9 +33,12 @@
                 },
                 localData: null,
                 selectorConfig: {
-                    title: 'Выбор группы лицензий'
+                    title: 'Выбор группы лицензий',
+                    filter: {
+                        onlyGroups: true
+                    }
                 },
-                source: new SourceService({endpoint: 'License'})
+                source: new SourceService({endpoint: 'Product'})
             }
         },
         methods: {
@@ -69,4 +71,4 @@
     });
 </script>
 
-<style scoped lang="less" src="./style.less"></style>
+<style lang="less" src="./style.less"></style>

@@ -1,8 +1,9 @@
 <div class="Product__wrapper">
     <GridView :source="source" @nodeClick="nodeClick">
         <template #content>
+            <el-table-column prop="photo_url" label="Продукт" height="200" width="200"/>
             <el-table-column prop="name" label="Название продукта" width="250" />
-            <el-table-column prop="description" label="Описание" width="*" />
+            <el-table-column prop="description" label="Описание" width="350" />
             <el-table-column prop="group_uuid" label="Лизенция" width="*" />
         </template>
     </GridView>
