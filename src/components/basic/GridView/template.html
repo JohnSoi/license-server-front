@@ -1,5 +1,5 @@
 <div class="GridView__wrapper">
-    <el-table :data="data" stripe class="full-size" v-infinite-scroll="load" @row-click="rowClick">
+    <el-table :data="data" stripe class="full-size scroll-container" v-infinite-scroll="load" @row-click="rowClick">
         <slot name="content">
                 <el-table-column prop="name" label="Название" width="180" />
                 <el-table-column prop="date" label="Дата" width="180" />
