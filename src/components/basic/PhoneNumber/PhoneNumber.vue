@@ -21,12 +21,12 @@
                 this.phone = this.format(val);
                 this.$emit('numberChange', this.phone);
             },
-            cleanValue(value){
+            cleanValue(value: any){
                 value = value.replace(/[^0-9]/g, "");
                 if (value.startsWith("7")) value = value.substring(1);
                 return value;
             },
-            format(value) {
+            format(value: any){
                 const match = value.matchAll(/(\d{1,3})?(\d{1,3})?(\d{1,4})?/g);
                 const parts = [...match];
                 const [str, p1 = "", p2 = "", p3 = ""] = parts[0];
