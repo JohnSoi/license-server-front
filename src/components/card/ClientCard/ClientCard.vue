@@ -6,10 +6,14 @@
     import {ObjectUtils} from "@/utils/Object";
     import SourceService from "@/services/SourceService";
     import PhoneNumber from "@/components/basic/PhoneNumber/PhoneNumber.vue";
+    import INN from "@/components/basic/INN/INN.vue";//добавила биб
+    import KPP from "@/components/basic/KPP/KPP.vue";//добавила биб
+    import AvatarLoader from "@/components/basic/AvatarLoader/AvatarLoader.vue";
+    import {MenuItems} from "@/constants/MenuItems";
 
     export default defineComponent({
         name: 'ClientCard',
-        components: {Card, PhoneNumber},
+        components: {Card, PhoneNumber,AvatarLoader,INN,KPP,MenuItems},
         props: {
             visible: {
                 default: false,
@@ -18,9 +22,6 @@
             data: {
                 required: true,
                 default: null,
-            },
-            menuItems: {
-                default: null
             },
         },
         beforeMount(): void {
@@ -35,7 +36,7 @@
                     ],
                     inn: [
                         {required: true, message: 'Введите ИНН', trigger: 'blur'},
-                        { min: 10, max: 12, message: 'Длинна должна быть от 10 до 12 символов', trigger: 'blur'},
+                        {validator: this.isValidInn, trigger: 'blur'}
                     ],
                     kpp: [
                         {required: true, message: 'Введите КПП', trigger: 'blur'},
@@ -50,7 +51,7 @@
                     ],
                     phone: [
                         { message: 'Введите телефон', trigger: 'blur' },
-                        { type: 'phone', message: 'Введите телефон', trigger: 'blur'},
+                        { type: 'phone', message: 'Введите телефон', trigger: 'blur', maxlength:'11'},
                     ],
                 },
                 localData: null,
@@ -67,6 +68,25 @@
             },
             selectedChange(key: any) {
                 this.localData.group_id = key;
+            },
+            numberChange(value: string): void {
+                this.localData.phone = value;
+            },
+            innChange(value: string): void {
+                this.localData.inn = value;
+            },
+            isValidInn(rule: any, value: any, callback: any) {
+                if (value === '') {
+                    callback(new Error('Поле подтверждения не заполнено'))
+                } else {
+                    callback()
+                }
+            },
+            kppChange(value: string): void {
+                this.localData.kpp = value;
+            },
+            setAvatar(value: string): void {
+                this.localData.photo_url = value;
             },
         },
         computed: {

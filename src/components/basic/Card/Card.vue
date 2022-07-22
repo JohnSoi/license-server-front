@@ -4,6 +4,7 @@
 import {defineComponent} from 'vue';
 import {Emmiter} from "@/helpers/BusEvents";
 
+
 export default defineComponent({
   name: 'BaseCard',
   props: {
@@ -11,6 +12,7 @@ export default defineComponent({
       default: false,
       type: Boolean
     },
+
     title: {
       default: 'Карточка',
       type: String

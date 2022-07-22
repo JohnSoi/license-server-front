@@ -1,0 +1,7 @@
+<el-input
+        v-model="inn"
+        :clearable="true" :show-word-limit="true"
+        :autosize="true"
+        @blur="innChange"
+        @valid="isValidInn"
+/>

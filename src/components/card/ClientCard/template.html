@@ -5,7 +5,7 @@
             :saveButtonDisabled="saveButtonDisabled"
             @cardVisibleChange="cardVisibleChange"
             @cardSave="cardSave"
-            :menuItems="[ {'title': 'Основная информация'}, {'title': 'Начисления'} ]"
+            :menuItems="[ {'title': 'Основная информация',icon: 'user-shield'}, {'title': 'Начисления', icon: 'money-bill', path: '/accruals'},{'title': 'Лицензии',icon: 'briefcase'},{'title': 'Продукты', icon: 'inbox'} ]"
     >
         <template #content>
             <div class="ClientCard__form">
@@ -16,17 +16,9 @@
                         label-width="120px"
                         status-icon
                 >
-                    <div class="ClientCard__avatar" style="margin-bottom: 20px;">
-                        <el-form-item class="UserCard__avatar-wrapper">
-                            <div class="full-width flex flex-align-center flex-justify-center">
-                                <el-upload
-                                        class="avatar-uploader"
-                                        :show-file-list="false"
-                                >
-                                    <img v-if="data.photo_url" :src="data.photo_url" class="avatar" />
-                                    <el-icon v-else class="avatar-uploader-icon"><Plus /></el-icon>
-                                </el-upload>
-                            </div>
+                    <div style="display: flex; justify-content: center;">
+                        <el-form-item class="UserCard__avatar-wrapper" v-bind:class="{'AvatarLoader__border':!!localData.photo_url}">
+                            <AvatarLoader :avatarPath="localData.photo_url" :before-upload="beforeAvatarUpload" @setAvatar="setAvatar"></AvatarLoader>
                         </el-form-item>
                     </div>
                     <div class="ClientCard__avatar-inputs">
@@ -35,12 +27,10 @@
                                       :autosize="true"/>
                         </el-form-item>
                         <el-form-item label="ИНН" prop="inn">
-                            <el-input v-model="localData.inn"  placeholder="Введите ИНН" :show-number-limit="true"
-                                      :clearable="true" minlength="10" maxlength="12"/>
+                            <INN :value="localData.inn" v-model="localData.inn" type="inn" @innChange="innChange" @isValidInn="isValidInn" maxlength="12"/>
                         </el-form-item>
                         <el-form-item label="КПП" prop="kpp">
-                            <el-input v-model="localData.kpp"  placeholder="Введите КПП"
-                                      :show-number-limit="true"  :clearable="true"  maxlength="9"/>
+                            <KPP :value="localData.kpp" @kppChange="kppChange" maxlength="12"/>
                         </el-form-item>
                         <el-form-item label="Активность" prop="is_active">
                             <el-switch
@@ -49,9 +39,8 @@
                                     style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949"
                             />
                         </el-form-item>
-                        <el-form-item label="Телефон" prop="phone">
-                            <el-input v-model="localData.phone"  placeholder="Введите номер"
-                                      :show-number-limit="true"  :clearable="true"  maxlength="11"/>
+                        <el-form-item label="Телефон" prop="telephone">
+                            <PhoneNumber :value="localData.telephone" @numberChange="numberChange"  maxlength="14"/>
                         </el-form-item>
                         <el-form-item label="Email:" prop="email">
                             <el-input v-model="localData.email" :clearable="true" :autosize="true"/>

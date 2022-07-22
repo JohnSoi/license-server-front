@@ -44,6 +44,14 @@
                         field: 'isActive',
                         value: null,
                         resetValue: false
+                    },
+                    {
+                        title: 'Наличие платных лицензий',
+                        type: FILTER_TYPE.SWITCH,
+                        viewMode: FILTER_VIEW_MODE.ADDITIONAL,
+                        field: 'isPaid',
+                        value: null,
+                        resetValue: false
                     }
                 ]
             }

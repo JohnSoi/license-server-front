@@ -1,5 +1,5 @@
 <div class="Client__wrapper">
-    <GridView :source="source"  @nodeClick="nodeClick">
+    <GridView :source="source"  @rowClick="rowClick">
         <template #content>
             <el-table-column prop="name" label="Имя" width="auto" />
             <el-table-column prop="inn" label="ИНН" width="auto" />
@@ -9,11 +9,14 @@
             <el-table-column prop="email" label="Почта" width="auto" />
         </template>
     </GridView>
-    <ClientCard
-            :visible="visible"
-            :data="data"
-            @clientCardVisibleChange="cardVisibleChange"
-            @cardSave="cardSave"
-            v-if="data"
-    />
+    <el-scrollbar height="400px">
+        <ClientCard
+                :visible="visible"
+                :data="data"
+                @clientCardVisibleChange="cardVisibleChange"
+                @cardSave="cardSave"
+                v-if="data"
+
+        />
+    </el-scrollbar>
 </div>
