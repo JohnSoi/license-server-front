@@ -4,6 +4,7 @@
             :visible="cardVisible"
             @cardVisibleChange="cardVisibleChange"
             @cardSave="cardSave"
+            :saveButtonDisabled="saveButtonDisabled"
     >
 
         <template #content>
@@ -29,7 +30,7 @@
                         <el-input v-model="localData.second_name" :clearable="true" :show-word-limit="true" :maxlength="40" :autosize="true"/>
                     </el-form-item>
                     <el-form-item label="Телефон" prop="phone">
-                        <PhoneNumber :value="localData.phone" @numberChange="numberChange"/>
+                        <PhoneNumber :value="localData.phone" @numberChange="numberChange" placeholder="(___) ___-____ "/>
                     </el-form-item>
                     <el-form-item label="Логин" prop="login">
                         <el-input v-model="localData.login" :clearable="true" :show-word-limit="true" :minlength="4" :maxlength="20" :autosize="true"/>

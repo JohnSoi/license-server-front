@@ -6,22 +6,36 @@
     export default defineComponent({
         name: 'PhoneNumberView',
         props: ['value'],
-        beforeMount(): void {
-            this.number = this.value || '+7  ';
-        },
         data: function () {
             return {
-                number: '',
+                phone: '',
             }
+        },
+        beforeMount(): void {
+            this.phone = this.value;
         },
         methods: {
             numberChange() {
-                this.number = this.number.replace(/^\+7(\d{3})?(\d{3})?(\d{4})?/g, '+7 ($1) $2-$3')
-                this.$emit('numberChange', this.number);
-                    // .number.replace(/[^0-9]/g, '')
+                let val = this.phone;
+                val = this.cleanValue(val);
+                this.phone = this.format(val);
+                this.$emit('numberChange', this.phone);
+            },
+            cleanValue(value){
+                value = value.replace(/[^0-9]/g, "");
+                if (value.startsWith("7")) value = value.substring(1);
+                return value;
+            },
+            format(value) {
+                const match = value.matchAll(/(\d{1,3})?(\d{1,3})?(\d{1,4})?/g);
+                const parts = [...match];
+                const [str, p1 = "", p2 = "", p3 = ""] = parts[0];
+                let res = `+7 `;
+                if (p1) res += `(${p1}`;
+                if (p2) res += `) ${p2}`;
+                if (p3) res += ` - ${p3}`;
+                return res;
+                }
             }
-        }
     });
 </script>
-
-<style scoped lang="less" src="./style.less"></style>

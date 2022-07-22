@@ -5,6 +5,7 @@
     import Card from "@/components/basic/Card/Card.vue";
     import PhoneNumber from "@/components/basic/PhoneNumber/PhoneNumber.vue";
     import AvatarLoader from "@/components/basic/AvatarLoader/AvatarLoader.vue";
+    import {ObjectUtils} from "@/utils/Object";
 
     export default defineComponent({
         name: 'UserCard',
@@ -20,7 +21,7 @@
             }
         },
         beforeMount(): void {
-            this.localData = this.data;
+            this.localData = ObjectUtils.Clone(this.data);
         },
         data(): {[key: string]: any} {
             return {
@@ -54,7 +55,7 @@
                         { type: 'email', message: 'Введите корректную почту', trigger: 'blur'}
                     ],
                     phone: [
-                        { type: 'phone', message: 'Введите телефон', trigger: 'blur'},
+                        {message: 'Введите телефон', trigger: 'blur'},
                     ],
                     date_birthday: [
                         {required: true, message: 'Выберите дату', trigger: 'blur'}
@@ -97,6 +98,9 @@
                 set(value: boolean) {
                     this.$emit('userCardVisibleChange', value);
                 }
+            },
+            saveButtonDisabled(): boolean {
+                return ObjectUtils.Equal(this.data, this.localData);
             }
         }
     });
